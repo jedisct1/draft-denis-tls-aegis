@@ -112,18 +112,18 @@ Table of Contents
    Section 4.1.1 remains the same, with the inclusion of the following
    cipher suites:
 
-    +========================+================+===========+==========+
-    | Cipher suite name      | AEAD algorithm | Hash      | Security |
-    |                        |                | algorithm | level    |
-    +========================+================+===========+==========+
-    | TLS_AEGIS_128L_SHA256  | AEGIS-128L     | SHA256    | 128 bits |
-    +------------------------+----------------+-----------+----------+
-    | TLS_AEGIS_128X2_SHA256 | AEGIS-128X2    | SHA256    | 128 bits |
-    +------------------------+----------------+-----------+----------+
-    | TLS_AEGIS_256_SHA512   | AEGIS-256      | SHA512    | 256 bits |
-    +------------------------+----------------+-----------+----------+
-    | TLS_AEGIS_256X2_SHA512 | AEGIS-256X2    | SHA512    | 256 bits |
-    +------------------------+----------------+-----------+----------+
+   +========================+=============+=========+=================+
+   | Cipher suite name      | AEAD        |Hash     | Confidentiality |
+   |                        | algorithm   |algorithm| level           |
+   +========================+=============+=========+=================+
+   | TLS_AEGIS_128L_SHA256  | AEGIS-128L  |SHA256   | 128 bits        |
+   +------------------------+-------------+---------+-----------------+
+   | TLS_AEGIS_128X2_SHA256 | AEGIS-128X2 |SHA256   | 128 bits        |
+   +------------------------+-------------+---------+-----------------+
+   | TLS_AEGIS_256_SHA512   | AEGIS-256   |SHA512   | 256 bits        |
+   +------------------------+-------------+---------+-----------------+
+   | TLS_AEGIS_256X2_SHA512 | AEGIS-256X2 |SHA512   | 256 bits        |
+   +------------------------+-------------+---------+-----------------+
 
                                  Table 1
 
@@ -132,11 +132,15 @@ Table of Contents
    record protection and the hash algorithm to use with the HMAC-based
    Key Derivation Function (HKDF).
 
+   For TLS 1.3, DTLS 1.3 and QUIC, AEGIS encryption algorithms MUST be
+   used with a 128-bit authentication tag.
+
    Link to [M23] to justify SHA512.
 
 3.2.  TLS Record Payload Protection
 
-   Record payload protection as defined in [RFC8446] is retained.
+   Record payload protection as defined in [RFC8446] is retained for
+   these new cipher suites.
 
 4.  DTLS 1.3
 

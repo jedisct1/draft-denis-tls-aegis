@@ -1240,7 +1240,7 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
               <th class="text-left" rowspan="1" colspan="1">Cipher suite name</th>
               <th class="text-left" rowspan="1" colspan="1">AEAD algorithm</th>
               <th class="text-left" rowspan="1" colspan="1">Hash algorithm</th>
-              <th class="text-left" rowspan="1" colspan="1">Security level</th>
+              <th class="text-left" rowspan="1" colspan="1">Confidentiality level</th>
             </tr>
           </thead>
           <tbody>
@@ -1279,7 +1279,8 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
           </tbody>
         </table>
 <p id="section-3.1-3">As defined in <span>[<a href="#RFC8446" class="cite xref">RFC8446</a>]</span>, TLS 1.3 cipher suites denote the Authenticated Encryption with Associated Data (AEAD) algorithm for record protection and the hash algorithm to use with the HMAC-based Key Derivation Function (HKDF).<a href="#section-3.1-3" class="pilcrow">¶</a></p>
-<p id="section-3.1-4">Link to <span>[<a href="#M23" class="cite xref">M23</a>]</span> to justify SHA512.<a href="#section-3.1-4" class="pilcrow">¶</a></p>
+<p id="section-3.1-4">For TLS 1.3, DTLS 1.3 and QUIC, AEGIS encryption algorithms <span class="bcp14">MUST</span> be used with a 128-bit authentication tag.<a href="#section-3.1-4" class="pilcrow">¶</a></p>
+<p id="section-3.1-5">Link to <span>[<a href="#M23" class="cite xref">M23</a>]</span> to justify SHA512.<a href="#section-3.1-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="tls-record-payload-protection">
@@ -1287,7 +1288,7 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
         <h3 id="name-tls-record-payload-protecti">
 <a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-tls-record-payload-protecti" class="section-name selfRef">TLS Record Payload Protection</a>
         </h3>
-<p id="section-3.2-1">Record payload protection as defined in <span>[<a href="#RFC8446" class="cite xref">RFC8446</a>]</span> is retained.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
+<p id="section-3.2-1">Record payload protection as defined in <span>[<a href="#RFC8446" class="cite xref">RFC8446</a>]</span> is retained for these new cipher suites.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
