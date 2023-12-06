@@ -79,9 +79,10 @@ Table of Contents
    Appendix A.  Test Vectors
      A.1.  TLS 1.3 Handshake Using TLS_AEGIS_128L_SHA256
      A.2.  TLS 1.3 Handshake Using TLS_AEGIS_256_SHA512
-     A.3.  DTLS 1.3 Record Number Encryption with
+     A.3.  DTLS 1.3 and QUIC Header Protection Mask With
            TLS_AEGIS_128L_SHA256
-     A.4.  DTLS 1.3 Record Number Encryption with TLS_AEGIS_256_SHA512
+     A.4.  DTLS 1.3 and QUIC Header Protection Mask With
+           TLS_AEGIS_256_SHA512
    Acknowledgments
    Author's Address
 
@@ -206,9 +207,10 @@ Table of Contents
    *  nonce_len: the AEGIS nonce length: 16 or 32, depending on the
       chosen AEAD algorithm.
 
-   The mask is computed as follows:
+   The mask is computed the same way was the DTLS 1.3 mask for record
+   number encryption:
 
-   mask = Encrypt("", "", hp_key, ZeroPad(ciphertext[0..16], nonce_len))
+   mask = Stream(5, hp_key, ZeroPad(ciphertext[0..16], nonce_len))
 
 6.  Security Considerations
 
@@ -336,16 +338,17 @@ A.2.  TLS 1.3 Handshake Using TLS_AEGIS_256_SHA512
    server_handshake_iv:  8f883c1bb0eae38960efdb717f6b19cf
                          c929d565ad596f1f4b3daab498a7fc29
 
-A.3.  DTLS 1.3 Record Number Encryption with TLS_AEGIS_128L_SHA256
+A.3.  DTLS 1.3 and QUIC Header Protection Mask With
+      TLS_AEGIS_128L_SHA256
 
-   sn_key:               000102030405060708090a0b0c0d0e0f
+   key:                  000102030405060708090a0b0c0d0e0f
    ciphertext[0..16]:    101112131415161718191a1b1c1d1e1f
    nonce_len:            16
    mask:                 60ede1c811
 
-A.4.  DTLS 1.3 Record Number Encryption with TLS_AEGIS_256_SHA512
+A.4.  DTLS 1.3 and QUIC Header Protection Mask With TLS_AEGIS_256_SHA512
 
-   sn_key:               000102030405060708090a0b0c0d0e0f
+   key:                  000102030405060708090a0b0c0d0e0f
                          101112131415161718191a1b1c1d1e1f
 
    ciphertext[0..16]:    202122232425262728292a2b2c2d2e2f
