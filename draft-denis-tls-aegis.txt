@@ -71,7 +71,9 @@ Table of Contents
      5.1.  QUIC Header Protection
    6.  Security Considerations
    7.  IANA Considerations
-   8.  Normative References
+   8.  References
+     8.1.  Normative References
+     8.2.  Informative References
    Appendix A.  Test Vectors
    Acknowledgments
    Author's Address
@@ -129,6 +131,8 @@ Table of Contents
    Authenticated Encryption with Associated Data (AEAD) algorithm for
    record protection and the hash algorithm to use with the HMAC-based
    Key Derivation Function (HKDF).
+
+   Link to [M23] to justify SHA512.
 
 3.2.  TLS Record Payload Protection
 
@@ -201,7 +205,9 @@ Table of Contents
 
    *  TLS_AEGIS_256X2_SHA512
 
-8.  Normative References
+8.  References
+
+8.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -229,6 +235,13 @@ Table of Contents
               Datagram Transport Layer Security (DTLS) Protocol Version
               1.3", RFC 9147, DOI 10.17487/RFC9147, April 2022,
               <https://www.rfc-editor.org/rfc/rfc9147>.
+
+8.2.  Informative References
+
+   [M23]      Mattsson, J. P., "Hidden Stream Ciphers and TMTO Attacks
+              on TLS 1.3, DTLS 1.3, QUIC, and Signal", Cryptology ePrint
+              Archive, Paper 2023/913, DOI 10.1007/978-981-99-7563-1_12,
+              2023, <https://eprint.iacr.org/2023/913.pdf>.
 
 Appendix A.  Test Vectors
 
