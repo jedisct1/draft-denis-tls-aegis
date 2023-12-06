@@ -1125,7 +1125,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         </h2>
 <nav class="toc"><ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
-            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction" class="internal xref">Introduction</a></p>
+            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction-and-rationale" class="internal xref">Introduction and rationale</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
             <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-conventions-and-definitions" class="internal xref">Conventions and Definitions</a></p>
@@ -1228,27 +1228,25 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </nav>
 </section>
 </div>
-<div id="introduction">
+<div id="introduction-and-rationale">
 <section id="section-1">
-      <h2 id="name-introduction">
-<a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
+      <h2 id="name-introduction-and-rationale">
+<a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction-and-rationale" class="section-name selfRef">Introduction and rationale</a>
       </h2>
-<p id="section-1-1">TODO Introduction &amp; rationale:<a href="#section-1-1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-1-2.1">
-          <p id="section-1-2.1.1">Alternative to AES-GCM, targets the same hardware class, but:<a href="#section-1-2.1.1" class="pilcrow">¶</a></p>
+<p id="section-1-1">AEGIS is a family of authenticated encryption algorithms designed for high-performance applications. AEGIS caters to the same hardware class as AES-GCM, distinguishing itself through the following key attributes:<a href="#section-1-1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-1-2">
+<li id="section-1-2.1">
+          <p id="section-1-2.1.1">Reduced memory requirements: AEGIS eliminates the necessity for a key schedule and precomputation tables, resulting in lower memory demands. This characteristic proves particularly advantageous for servers managing a substantial volume of connections.<a href="#section-1-2.1.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-1-2.2">
-          <p id="section-1-2.2.1">Lower memory requirements (no key schedule, no precomputation tables)<a href="#section-1-2.2.1" class="pilcrow">¶</a></p>
+        <li id="section-1-2.2">
+          <p id="section-1-2.2.1">Extended usage limits: AEGIS features higher usage limits, mitigating the need for frequent rekeying compared to other available options.<a href="#section-1-2.2.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-1-2.3">
-          <p id="section-1-2.3.1">Higher usage limits (only dependent on the tag size), doesn’t require rekeying as frequently as other options<a href="#section-1-2.3.1" class="pilcrow">¶</a></p>
+        <li id="section-1-2.3">
+          <p id="section-1-2.3.1">Enhanced overall performance: AEGIS is very efficient on CPUs supporting AES-specific instructions.<a href="#section-1-2.3.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-1-2.4">
-          <p id="section-1-2.4.1">Higher performance<a href="#section-1-2.4.1" class="pilcrow">¶</a></p>
-</li>
-      </ul>
-<p id="section-1-3">Integration is simple, same interface as existing TLS 1.3 ciphers.<a href="#section-1-3" class="pilcrow">¶</a></p>
+      </ol>
+<p id="section-1-3">AEGIS ciphers seamlessly integrate into established protocols like TLS 1.3 by adhering to the same interface standards as existing algorithms.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-4">This document introduces new ciphersuites based on the AEGIS algorithms and outlines the procedures for their incorporation into the TLS 1.3 <span>[<a href="#RFC8446" class="cite xref">RFC8446</a>]</span>, DTLS 1.3 <span>[<a href="#RFC9147" class="cite xref">RFC9147</a>]</span>, and QUIC <span>[<a href="#RFC9000" class="cite xref">RFC9000</a>]</span> protocols.<a href="#section-1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="conventions-and-definitions">
@@ -1323,7 +1321,7 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
         </table>
 <p id="section-3.1-3">As defined in <span>[<a href="#RFC8446" class="cite xref">RFC8446</a>]</span>, TLS 1.3 cipher suites denote the Authenticated Encryption with Associated Data (AEAD) algorithm for record protection and the hash algorithm to use with the HMAC-based Key Derivation Function (HKDF).<a href="#section-3.1-3" class="pilcrow">¶</a></p>
 <p id="section-3.1-4">For TLS 1.3, DTLS 1.3 and QUIC, AEGIS encryption algorithms <span class="bcp14">MUST</span> be used with a 128-bit authentication tag.<a href="#section-3.1-4" class="pilcrow">¶</a></p>
-<p id="section-3.1-5">Link to <span>[<a href="#M23" class="cite xref">M23</a>]</span> to justify SHA512.<a href="#section-3.1-5" class="pilcrow">¶</a></p>
+<p id="section-3.1-5">(Link to <span>[<a href="#M23" class="cite xref">M23</a>]</span> to justify SHA512)<a href="#section-3.1-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="tls-record-payload-protection">

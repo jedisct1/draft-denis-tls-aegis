@@ -60,7 +60,7 @@ Copyright Notice
 
 Table of Contents
 
-   1.  Introduction
+   1.  Introduction and rationale
    2.  Conventions and Definitions
    3.  Usage with TLS 1.3
      3.1.  Cryptographic Negotiation
@@ -89,21 +89,33 @@ Table of Contents
    Acknowledgments
    Author's Address
 
-1.  Introduction
+1.  Introduction and rationale
 
-   TODO Introduction & rationale:
+   AEGIS is a family of authenticated encryption algorithms designed for
+   high-performance applications.  AEGIS caters to the same hardware
+   class as AES-GCM, distinguishing itself through the following key
+   attributes:
 
-   *  Alternative to AES-GCM, targets the same hardware class, but:
+   1.  Reduced memory requirements: AEGIS eliminates the necessity for a
+       key schedule and precomputation tables, resulting in lower memory
+       demands.  This characteristic proves particularly advantageous
+       for servers managing a substantial volume of connections.
 
-   *  Lower memory requirements (no key schedule, no precomputation
-      tables)
+   2.  Extended usage limits: AEGIS features higher usage limits,
+       mitigating the need for frequent rekeying compared to other
+       available options.
 
-   *  Higher usage limits (only dependent on the tag size), doesn’t
-      require rekeying as frequently as other options
+   3.  Enhanced overall performance: AEGIS is very efficient on CPUs
+       supporting AES-specific instructions.
 
-   *  Higher performance
+   AEGIS ciphers seamlessly integrate into established protocols like
+   TLS 1.3 by adhering to the same interface standards as existing
+   algorithms.
 
-   Integration is simple, same interface as existing TLS 1.3 ciphers.
+   This document introduces new ciphersuites based on the AEGIS
+   algorithms and outlines the procedures for their incorporation into
+   the TLS 1.3 [RFC8446], DTLS 1.3 [RFC9147], and QUIC [RFC9000]
+   protocols.
 
 2.  Conventions and Definitions
 
@@ -144,7 +156,7 @@ Table of Contents
    For TLS 1.3, DTLS 1.3 and QUIC, AEGIS encryption algorithms MUST be
    used with a 128-bit authentication tag.
 
-   Link to [M23] to justify SHA512.
+   (Link to [M23] to justify SHA512)
 
 3.2.  TLS Record Payload Protection
 
