@@ -168,8 +168,9 @@ Table of Contents
    In DTLS 1.3, record sequence numbers are encrypted as specified in
    [RFC9147], Section 4.2.3.
 
-   For AEGIS, the mask is generated using the AEGIS Stream function
-   defined in (TODO: link to the AEGIS RFC and section) with:
+   With AEGIS-based ciphersuites, the mask is generated using the AEGIS
+   Stream and ZeroPad functions defined in (TODO: link to the AEGIS RFC
+   and section) with:
 
    *  a 128-bit tag length
 
@@ -198,8 +199,8 @@ Table of Contents
    In QUIC, parts of the QUIC packet headers are encrypted as specified
    in [RFC9001], Section 5.4.
 
-   For AEGIS-128L and AEGIS-256, the mask is generated using the AEGIS
-   Encrypt function with:
+   With AEGIS-based ciphersuites, the mask is generated the same way as
+   in DTLS 1.3 using:
 
    *  a 128-bit tag length
 
@@ -209,9 +210,6 @@ Table of Contents
 
    *  nonce_len: the AEGIS nonce length: 16 or 32, depending on the
       chosen AEAD algorithm.
-
-   The mask is computed the same way was the DTLS 1.3 mask for record
-   number encryption:
 
    mask = Stream(5, hp_key, ZeroPad(ciphertext[0..16], nonce_len))
 
