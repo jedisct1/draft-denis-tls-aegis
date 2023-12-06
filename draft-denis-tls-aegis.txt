@@ -77,12 +77,12 @@ Table of Contents
      8.1.  Normative References
      8.2.  Informative References
    Appendix A.  Test Vectors
-     A.1.  TLS 1.3 Handshake Using TLS_AEGIS_128L_SHA256
-     A.2.  TLS 1.3 Handshake Using TLS_AEGIS_256_SHA512
-     A.3.  DTLS 1.3 and QUIC Header Protection Mask With
-           TLS_AEGIS_128L_SHA256
-     A.4.  DTLS 1.3 and QUIC Header Protection Mask With
-           TLS_AEGIS_256_SHA512
+     A.1.  TLS 1.3 Handshake
+       A.1.1.  With TLS_AEGIS_128L_SHA256
+       A.1.2.  With TLS_AEGIS_256_SHA512
+     A.2.  DTLS 1.3 and QUIC Header Protection Mask
+       A.2.1.  With TLS_AEGIS_128L_SHA256
+       A.2.2.  With TLS_AEGIS_256_SHA512
    Acknowledgments
    Author's Address
 
@@ -271,7 +271,9 @@ Table of Contents
 
 Appendix A.  Test Vectors
 
-A.1.  TLS 1.3 Handshake Using TLS_AEGIS_128L_SHA256
+A.1.  TLS 1.3 Handshake
+
+A.1.1.  With TLS_AEGIS_128L_SHA256
 
    shared_key:           cbb2b72da2bc70eb85fae05a8f6bc929
                          6f3e2f9693e5972a7b2a3da608e5eda2
@@ -296,7 +298,7 @@ A.1.  TLS 1.3 Handshake Using TLS_AEGIS_128L_SHA256
 
    server_handshake_iv:  cc421814028367299508e120a7cb3ad2
 
-A.2.  TLS 1.3 Handshake Using TLS_AEGIS_256_SHA512
+A.1.2.  With TLS_AEGIS_256_SHA512
 
    shared_key:           724d41a7ccadc6435d4305dd6756bd01
                          5e26dd0544a19733a2c08430f128b218
@@ -310,11 +312,6 @@ A.2.  TLS 1.3 Handshake Using TLS_AEGIS_256_SHA512
                          03caa51a1dba1c79ce18eea0365d35d0
                          71e597a2b95214821100e812f7b79828
                          498f164707cd63c6f7464973cfa22046
-
-   hs_derived_secret:    9f21240de25b0247ff8758c9e3ec82ae
-                         312520f2f88a365b76a413de85d97edc
-                         8a4dc3f0093a900cb81ef2869f50adab
-                         10ae2730971c73ef81c5712b80fdfdff
 
    handshake_secret:     55ef8c23352da78bf1daa4626445c883
                          b842bec578769fe9ae6fbf6de5c28953
@@ -338,8 +335,9 @@ A.2.  TLS 1.3 Handshake Using TLS_AEGIS_256_SHA512
    server_handshake_iv:  8f883c1bb0eae38960efdb717f6b19cf
                          c929d565ad596f1f4b3daab498a7fc29
 
-A.3.  DTLS 1.3 and QUIC Header Protection Mask With
-      TLS_AEGIS_128L_SHA256
+A.2.  DTLS 1.3 and QUIC Header Protection Mask
+
+A.2.1.  With TLS_AEGIS_128L_SHA256
 
    key:                  000102030405060708090a0b0c0d0e0f
 
@@ -349,7 +347,7 @@ A.3.  DTLS 1.3 and QUIC Header Protection Mask With
 
    mask:                 60ede1c811
 
-A.4.  DTLS 1.3 and QUIC Header Protection Mask With TLS_AEGIS_256_SHA512
+A.2.2.  With TLS_AEGIS_256_SHA512
 
    key:                  000102030405060708090a0b0c0d0e0f
                          101112131415161718191a1b1c1d1e1f
