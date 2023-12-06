@@ -65,9 +65,10 @@ Table of Contents
    3.  New Cipher Suites and Preservation of TLS 1.3 Mechanisms
    4.  DTLS 1.3 Record Number Encryption
    5.  QUIC Header Protection
-   6.  Security Considerations
-   7.  IANA Considerations
-   8.  Normative References
+   6.  Operational Considerations
+   7.  Security Considerations
+   8.  IANA Considerations
+   9.  Normative References
    Appendix A.  Examples
      A.1.  TLS 1.3 Handshake
        A.1.1.  With TLS_AEGIS_128L_SHA256
@@ -200,13 +201,24 @@ Table of Contents
 
    mask = Stream(5, hp_key, ZeroPad(ciphertext[0..16], nonce_len))
 
-6.  Security Considerations
+6.  Operational Considerations
+
+   On devices lacking hardware AES acceleration or protection against
+   side-channel attacks, cipher suites dependent on the AES round
+   function SHOULD NOT be prioritized.  This recommendation encompasses
+   the cipher suites outlined in this document
+
+   On devices equipped with secure hardware AES acceleration,
+   implementations SHOULD prioritize AEGIS-based cipher suites over AES-
+   GCM ones of equivalent security levels.
+
+7.  Security Considerations
 
    A key update MUST be performed prior to encrypting 2^48 records with
    the same key.  The prescribed mechanism is documented in [RFC8446],
    Section 4.6.3.
 
-7.  IANA Considerations
+8.  IANA Considerations
 
    IANA is requested to register the following identifiers in the TLS
    Cipher Suite Registry:
@@ -225,7 +237,7 @@ Table of Contents
 
                         Table 2: IANA identifiers
 
-8.  Normative References
+9.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
