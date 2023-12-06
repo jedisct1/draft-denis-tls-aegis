@@ -93,8 +93,6 @@ Table of Contents
 
    TODO Introduction & rationale:
 
-   Why AEGIS for TLS?
-
    *  Alternative to AES-GCM, targets the same hardware class, but:
 
    *  Lower memory requirements (no key schedule, no precomputation
