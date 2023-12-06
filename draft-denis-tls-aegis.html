@@ -1184,16 +1184,16 @@ svg :is([fill="white"], [fill^="#fff"]) {
             <p id="section-toc.1-1.9.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-test-vectors" class="internal xref">Test Vectors</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.1">
-                <p id="section-toc.1-1.9.2.1.1"><a href="#appendix-A.1" class="auto internal xref">A.1</a>.  <a href="#name-tls-13-handshake-using-tls_" class="internal xref">TLS 1.3 handshake using TLS_AEGIS_128L_SHA256</a></p>
+                <p id="section-toc.1-1.9.2.1.1"><a href="#appendix-A.1" class="auto internal xref">A.1</a>.  <a href="#name-tls-13-handshake-using-tls_" class="internal xref">TLS 1.3 Handshake Using TLS_AEGIS_128L_SHA256</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.2">
-                <p id="section-toc.1-1.9.2.2.1"><a href="#appendix-A.2" class="auto internal xref">A.2</a>.  <a href="#name-tls-13-handshake-using-tls_a" class="internal xref">TLS 1.3 handshake using TLS_AEGIS_256_SHA512</a></p>
+                <p id="section-toc.1-1.9.2.2.1"><a href="#appendix-A.2" class="auto internal xref">A.2</a>.  <a href="#name-tls-13-handshake-using-tls_a" class="internal xref">TLS 1.3 Handshake Using TLS_AEGIS_256_SHA512</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.3">
-                <p id="section-toc.1-1.9.2.3.1"><a href="#appendix-A.3" class="auto internal xref">A.3</a>.  <a href="#name-quic-header-protection-with" class="internal xref">QUIC header protection with TLS_AEGIS_128L_SHA256</a></p>
+                <p id="section-toc.1-1.9.2.3.1"><a href="#appendix-A.3" class="auto internal xref">A.3</a>.  <a href="#name-dtls-13-record-number-encryp" class="internal xref">DTLS 1.3 Record Number Encryption with TLS_AEGIS_128L_SHA256</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.4">
-                <p id="section-toc.1-1.9.2.4.1"><a href="#appendix-A.4" class="auto internal xref">A.4</a>.  <a href="#name-quic-header-protection-with-" class="internal xref">QUIC header protection with TLS_AEGIS_256_SHA512</a></p>
+                <p id="section-toc.1-1.9.2.4.1"><a href="#appendix-A.4" class="auto internal xref">A.4</a>.  <a href="#name-dtls-13-record-number-encrypt" class="internal xref">DTLS 1.3 Record Number Encryption with TLS_AEGIS_256_SHA512</a></p>
 </li>
             </ul>
 </li>
@@ -1500,7 +1500,7 @@ mask = Encrypt("", "", hp_key, ZeroPad(sample, nonce_len))
 <div id="tls-13-handshake-using-tlsaegis128lsha256">
 <section id="appendix-A.1">
         <h3 id="name-tls-13-handshake-using-tls_">
-<a href="#appendix-A.1" class="section-number selfRef">A.1. </a><a href="#name-tls-13-handshake-using-tls_" class="section-name selfRef">TLS 1.3 handshake using TLS_AEGIS_128L_SHA256</a>
+<a href="#appendix-A.1" class="section-number selfRef">A.1. </a><a href="#name-tls-13-handshake-using-tls_" class="section-name selfRef">TLS 1.3 Handshake Using TLS_AEGIS_128L_SHA256</a>
         </h3>
 <div class="alignLeft art-text artwork" id="appendix-A.1-1">
 <pre>
@@ -1533,7 +1533,7 @@ server_handshake_iv:  cc421814028367299508e120a7cb3ad2
 <div id="tls-13-handshake-using-tlsaegis256sha512">
 <section id="appendix-A.2">
         <h3 id="name-tls-13-handshake-using-tls_a">
-<a href="#appendix-A.2" class="section-number selfRef">A.2. </a><a href="#name-tls-13-handshake-using-tls_a" class="section-name selfRef">TLS 1.3 handshake using TLS_AEGIS_256_SHA512</a>
+<a href="#appendix-A.2" class="section-number selfRef">A.2. </a><a href="#name-tls-13-handshake-using-tls_a" class="section-name selfRef">TLS 1.3 Handshake Using TLS_AEGIS_256_SHA512</a>
         </h3>
 <div class="alignLeft art-text artwork" id="appendix-A.2-1">
 <pre>
@@ -1580,34 +1580,34 @@ server_handshake_iv:  8f883c1bb0eae38960efdb717f6b19cf
 </div>
 </section>
 </div>
-<div id="quic-header-protection-with-tlsaegis128lsha256">
+<div id="dtls-13-record-number-encryption-with-tlsaegis128lsha256">
 <section id="appendix-A.3">
-        <h3 id="name-quic-header-protection-with">
-<a href="#appendix-A.3" class="section-number selfRef">A.3. </a><a href="#name-quic-header-protection-with" class="section-name selfRef">QUIC header protection with TLS_AEGIS_128L_SHA256</a>
+        <h3 id="name-dtls-13-record-number-encryp">
+<a href="#appendix-A.3" class="section-number selfRef">A.3. </a><a href="#name-dtls-13-record-number-encryp" class="section-name selfRef">DTLS 1.3 Record Number Encryption with TLS_AEGIS_128L_SHA256</a>
         </h3>
 <div class="alignLeft art-text artwork" id="appendix-A.3-1">
 <pre>
-sn_key:            000102030405060708090a0b0c0d0e0f
-ciphertext[0..16]: 101112131415161718191a1b1c1d1e1f
-nonce_len:         16
-mask:              60ede1c811
+sn_key:               000102030405060708090a0b0c0d0e0f
+ciphertext[0..16]:    101112131415161718191a1b1c1d1e1f
+nonce_len:            16
+mask:                 60ede1c811
 </pre><a href="#appendix-A.3-1" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
-<div id="quic-header-protection-with-tlsaegis256sha512">
+<div id="dtls-13-record-number-encryption-with-tlsaegis256sha512">
 <section id="appendix-A.4">
-        <h3 id="name-quic-header-protection-with-">
-<a href="#appendix-A.4" class="section-number selfRef">A.4. </a><a href="#name-quic-header-protection-with-" class="section-name selfRef">QUIC header protection with TLS_AEGIS_256_SHA512</a>
+        <h3 id="name-dtls-13-record-number-encrypt">
+<a href="#appendix-A.4" class="section-number selfRef">A.4. </a><a href="#name-dtls-13-record-number-encrypt" class="section-name selfRef">DTLS 1.3 Record Number Encryption with TLS_AEGIS_256_SHA512</a>
         </h3>
 <div class="alignLeft art-text artwork" id="appendix-A.4-1">
 <pre>
-sn_key:            000102030405060708090a0b0c0d0e0f
-                   101112131415161718191a1b1c1d1e1f
+sn_key:               000102030405060708090a0b0c0d0e0f
+                      101112131415161718191a1b1c1d1e1f
 
-ciphertext[0..16]: 202122232425262728292a2b2c2d2e2f
-nonce_len:         32
-mask:              6e3a2ce297
+ciphertext[0..16]:    202122232425262728292a2b2c2d2e2f
+nonce_len:            32
+mask:                 6e3a2ce297
 </pre><a href="#appendix-A.4-1" class="pilcrow">¶</a>
 </div>
 </section>

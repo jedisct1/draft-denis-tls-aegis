@@ -77,10 +77,11 @@ Table of Contents
      8.1.  Normative References
      8.2.  Informative References
    Appendix A.  Test Vectors
-     A.1.  TLS 1.3 handshake using TLS_AEGIS_128L_SHA256
-     A.2.  TLS 1.3 handshake using TLS_AEGIS_256_SHA512
-     A.3.  QUIC header protection with TLS_AEGIS_128L_SHA256
-     A.4.  QUIC header protection with TLS_AEGIS_256_SHA512
+     A.1.  TLS 1.3 Handshake Using TLS_AEGIS_128L_SHA256
+     A.2.  TLS 1.3 Handshake Using TLS_AEGIS_256_SHA512
+     A.3.  DTLS 1.3 Record Number Encryption with
+           TLS_AEGIS_128L_SHA256
+     A.4.  DTLS 1.3 Record Number Encryption with TLS_AEGIS_256_SHA512
    Acknowledgments
    Author's Address
 
@@ -267,7 +268,7 @@ Table of Contents
 
 Appendix A.  Test Vectors
 
-A.1.  TLS 1.3 handshake using TLS_AEGIS_128L_SHA256
+A.1.  TLS 1.3 Handshake Using TLS_AEGIS_128L_SHA256
 
    shared_key:           cbb2b72da2bc70eb85fae05a8f6bc929
                          6f3e2f9693e5972a7b2a3da608e5eda2
@@ -292,7 +293,7 @@ A.1.  TLS 1.3 handshake using TLS_AEGIS_128L_SHA256
 
    server_handshake_iv:  cc421814028367299508e120a7cb3ad2
 
-A.2.  TLS 1.3 handshake using TLS_AEGIS_256_SHA512
+A.2.  TLS 1.3 Handshake Using TLS_AEGIS_256_SHA512
 
    shared_key:           724d41a7ccadc6435d4305dd6756bd01
                          5e26dd0544a19733a2c08430f128b218
@@ -334,21 +335,21 @@ A.2.  TLS 1.3 handshake using TLS_AEGIS_256_SHA512
    server_handshake_iv:  8f883c1bb0eae38960efdb717f6b19cf
                          c929d565ad596f1f4b3daab498a7fc29
 
-A.3.  QUIC header protection with TLS_AEGIS_128L_SHA256
+A.3.  DTLS 1.3 Record Number Encryption with TLS_AEGIS_128L_SHA256
 
-   sn_key:            000102030405060708090a0b0c0d0e0f
-   ciphertext[0..16]: 101112131415161718191a1b1c1d1e1f
-   nonce_len:         16
-   mask:              60ede1c811
+   sn_key:               000102030405060708090a0b0c0d0e0f
+   ciphertext[0..16]:    101112131415161718191a1b1c1d1e1f
+   nonce_len:            16
+   mask:                 60ede1c811
 
-A.4.  QUIC header protection with TLS_AEGIS_256_SHA512
+A.4.  DTLS 1.3 Record Number Encryption with TLS_AEGIS_256_SHA512
 
-   sn_key:            000102030405060708090a0b0c0d0e0f
-                      101112131415161718191a1b1c1d1e1f
+   sn_key:               000102030405060708090a0b0c0d0e0f
+                         101112131415161718191a1b1c1d1e1f
 
-   ciphertext[0..16]: 202122232425262728292a2b2c2d2e2f
-   nonce_len:         32
-   mask:              6e3a2ce297
+   ciphertext[0..16]:    202122232425262728292a2b2c2d2e2f
+   nonce_len:            32
+   mask:                 6e3a2ce297
 
 Acknowledgments
 
