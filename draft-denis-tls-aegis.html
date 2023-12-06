@@ -1233,8 +1233,11 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 <a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-cryptographic-negotiation" class="section-name selfRef">Cryptographic Negotiation</a>
         </h3>
 <p id="section-3.1-1">The cryptographic negotiation as specified in <span>[<a href="#RFC8446" class="cite xref">RFC8446</a>], <a href="https://rfc-editor.org/rfc/rfc8446#section-4.1.1" class="relref">Section 4.1.1</a></span> remains the same, with the inclusion of the following cipher suites:<a href="#section-3.1-1" class="pilcrow">¶</a></p>
-<table class="center" id="table-1">
-          <caption><a href="#table-1" class="selfRef">Table 1</a></caption>
+<span id="name-aegis-based-cipher-suites"></span><table class="center" id="table-1">
+          <caption>
+<a href="#table-1" class="selfRef">Table 1</a>:
+<a href="#name-aegis-based-cipher-suites" class="selfRef">AEGIS-based cipher suites</a>
+          </caption>
 <thead>
             <tr>
               <th class="text-left" rowspan="1" colspan="1">Cipher suite name</th>
@@ -1385,8 +1388,7 @@ mask = Encrypt("", "", hp_key, ZeroPad(sample, nonce_len))
       <h2 id="name-iana-considerations">
 <a href="#section-7" class="section-number selfRef">7. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-7-1">IANA is requested to register the following identifiers in the TLS Cipher Suite
-Registry:<a href="#section-7-1" class="pilcrow">¶</a></p>
+<p id="section-7-1">IANA is requested to register the following identifiers in the TLS Cipher Suite Registry:<a href="#section-7-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-7-2.1">
           <p id="section-7-2.1.1"><code>TLS_AEGIS_128L_SHA256</code><a href="#section-7-2.1.1" class="pilcrow">¶</a></p>
