@@ -1145,7 +1145,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-dtls-13" class="internal xref">DTLS 1.3</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
-                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-dtls-13-record-number-encry" class="internal xref">DTLS 1.3 Record Number Encryption</a></p>
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-cryptographic-negotiation-2" class="internal xref">Cryptographic Negotiation</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
+                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-dtls-13-record-number-encry" class="internal xref">DTLS 1.3 Record Number Encryption</a></p>
 </li>
             </ul>
 </li>
@@ -1192,7 +1195,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">TODO Introduction:<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-1">TODO Introduction &amp; rationale:<a href="#section-1-1" class="pilcrow">¶</a></p>
 <p id="section-1-2">Why AEGIS for TLS?<a href="#section-1-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-1-3.1">
@@ -1301,33 +1304,41 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
       <h2 id="name-dtls-13">
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-dtls-13" class="section-name selfRef">DTLS 1.3</a>
       </h2>
-<p id="section-4-1">Same cipher suites as TLS 1.3.<a href="#section-4-1" class="pilcrow">¶</a></p>
-<div id="dtls-13-record-number-encryption">
+<div id="cryptographic-negotiation-1">
 <section id="section-4.1">
-        <h3 id="name-dtls-13-record-number-encry">
-<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-dtls-13-record-number-encry" class="section-name selfRef">DTLS 1.3 Record Number Encryption</a>
+        <h3 id="name-cryptographic-negotiation-2">
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-cryptographic-negotiation-2" class="section-name selfRef">Cryptographic Negotiation</a>
         </h3>
-<p id="section-4.1-1">In DTLS 1.3, record sequence numbers are encrypted as specified in <span>[<a href="#RFC9147" class="cite xref">RFC9147</a>]</span>.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
-<p id="section-4.1-2">For AEGIS-128L and AEGIS-256, the mask is generated using the AEGIS <code>Stream</code> function with:<a href="#section-4.1-2" class="pilcrow">¶</a></p>
+<p id="section-4.1-1">The DTLS 1.3 handshake is specified in <span>[<a href="#RFC9147" class="cite xref">RFC9147</a>], <a href="https://rfc-editor.org/rfc/rfc9147#section-5" class="relref">Section 5</a></span> and reuses the TLS 1.3 mechanisms and cipher suites.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
+<p id="section-4.1-2">No DTLS-specific changes are required to support the AEGIS-based cipher suites defined in the TLS 1.3 section,<a href="#section-4.1-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="dtls-13-record-number-encryption">
+<section id="section-4.2">
+        <h3 id="name-dtls-13-record-number-encry">
+<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-dtls-13-record-number-encry" class="section-name selfRef">DTLS 1.3 Record Number Encryption</a>
+        </h3>
+<p id="section-4.2-1">In DTLS 1.3, record sequence numbers are encrypted as specified in <span>[<a href="#RFC9147" class="cite xref">RFC9147</a>], <a href="https://rfc-editor.org/rfc/rfc9147#section-4.2.3" class="relref">Section 4.2.3</a></span>.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
+<p id="section-4.2-2">For AEGIS-128L and AEGIS-256, the mask is generated using the AEGIS <code>Stream</code> function defined in (TODO: link to the AEGIS RFC and section) with:<a href="#section-4.2-2" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-4.1-3.1">
-            <p id="section-4.1-3.1.1">a 128-bit tag length<a href="#section-4.1-3.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-4.2-3.1">
+            <p id="section-4.2-3.1.1">a 128-bit tag length<a href="#section-4.2-3.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-4.1-3.2">
-            <p id="section-4.1-3.2.1"><code>sn_key</code>, as defined in <span>[<a href="#RFC9147" class="cite xref">RFC9147</a>], <a href="https://rfc-editor.org/rfc/rfc9147#section-4.2.3" class="relref">Section 4.2.3</a></span><a href="#section-4.1-3.2.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-4.2-3.2">
+            <p id="section-4.2-3.2.1"><code>sn_key</code>, as defined in <span>[<a href="#RFC9147" class="cite xref">RFC9147</a>], <a href="https://rfc-editor.org/rfc/rfc9147#section-4.2.3" class="relref">Section 4.2.3</a></span><a href="#section-4.2-3.2.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-4.1-3.3">
-            <p id="section-4.1-3.3.1"><code>ciphertext[0..16]</code>: the first 16 bytes of the DTLS ciphertext<a href="#section-4.1-3.3.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-4.2-3.3">
+            <p id="section-4.2-3.3.1"><code>ciphertext[0..16]</code>: the first 16 bytes of the DTLS ciphertext<a href="#section-4.2-3.3.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-4.1-3.4">
-            <p id="section-4.1-3.4.1"><code>nonce_len</code>: the AEGIS nonce length<a href="#section-4.1-3.4.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-4.2-3.4">
+            <p id="section-4.2-3.4.1"><code>nonce_len</code>: the AEGIS nonce length: 16 or 32, depending on the chosen AEAD algorithm.<a href="#section-4.2-3.4.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-4.1-4">The 5-byte mask is computed as follows:<a href="#section-4.1-4" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-4.1-5">
+<p id="section-4.2-4">The 5-byte mask is computed as follows:<a href="#section-4.2-4" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-4.2-5">
 <pre>
 mask = Stream(5, sn_key, ZeroPad(ciphertext[0..16], nonce_len))
-</pre><a href="#section-4.1-5" class="pilcrow">¶</a>
+</pre><a href="#section-4.2-5" class="pilcrow">¶</a>
 </div>
 </section>
 </div>
