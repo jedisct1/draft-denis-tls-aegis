@@ -1182,6 +1182,20 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
             <p id="section-toc.1-1.9.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-test-vectors" class="internal xref">Test Vectors</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.1">
+                <p id="section-toc.1-1.9.2.1.1"><a href="#appendix-A.1" class="auto internal xref">A.1</a>.  <a href="#name-tls-13-handshake-using-tls_" class="internal xref">TLS 1.3 handshake using TLS_AEGIS_128L_SHA256</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.2">
+                <p id="section-toc.1-1.9.2.2.1"><a href="#appendix-A.2" class="auto internal xref">A.2</a>.  <a href="#name-tls-13-handshake-using-tls_a" class="internal xref">TLS 1.3 handshake using TLS_AEGIS_256_SHA512</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.3">
+                <p id="section-toc.1-1.9.2.3.1"><a href="#appendix-A.3" class="auto internal xref">A.3</a>.  <a href="#name-quic-header-protection-with" class="internal xref">QUIC header protection with TLS_AEGIS_128L_SHA256</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.4">
+                <p id="section-toc.1-1.9.2.4.1"><a href="#appendix-A.4" class="auto internal xref">A.4</a>.  <a href="#name-quic-header-protection-with-" class="internal xref">QUIC header protection with TLS_AEGIS_256_SHA512</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
             <p id="section-toc.1-1.10.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
@@ -1337,7 +1351,7 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
             <p id="section-4.2-3.4.1"><code>nonce_len</code>: the AEGIS nonce length: 16 or 32, depending on the chosen AEAD algorithm.<a href="#section-4.2-3.4.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-4.2-4">The 5-byte mask is computed as follows:<a href="#section-4.2-4" class="pilcrow">¶</a></p>
+<p id="section-4.2-4">A 48-bit mask is computed as follows:<a href="#section-4.2-4" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-4.2-5">
 <pre>
 mask = Stream(5, sn_key, ZeroPad(ciphertext[0..16], nonce_len))
@@ -1483,7 +1497,121 @@ mask = Encrypt("", "", hp_key, ZeroPad(sample, nonce_len))
       <h2 id="name-test-vectors">
 <a href="#appendix-A" class="section-number selfRef">Appendix A. </a><a href="#name-test-vectors" class="section-name selfRef">Test Vectors</a>
       </h2>
-<p id="appendix-A-1">Everybody likes test vectors.<a href="#appendix-A-1" class="pilcrow">¶</a></p>
+<div id="tls-13-handshake-using-tlsaegis128lsha256">
+<section id="appendix-A.1">
+        <h3 id="name-tls-13-handshake-using-tls_">
+<a href="#appendix-A.1" class="section-number selfRef">A.1. </a><a href="#name-tls-13-handshake-using-tls_" class="section-name selfRef">TLS 1.3 handshake using TLS_AEGIS_128L_SHA256</a>
+        </h3>
+<div class="alignLeft art-text artwork" id="appendix-A.1-1">
+<pre>
+shared_key:           cbb2b72da2bc70eb85fae05a8f6bc929
+                      6f3e2f9693e5972a7b2a3da608e5eda2
+
+hello_hash:           b77594edb8abd3acc4db7f5ead5869e1
+                      96fff7d0fb1beb2bffbaac850bf479d8
+
+early_secret:         33ad0a1c607ec03b09e6cd9893680ce2
+                      10adf300aa1f2660e1b22e10f170f92a
+
+handshake_secret:     15614a4e6a6c590f16e9760dc20002a1
+                      2af27d6ceda73c66a9477de4b690639f
+
+client_secret:        6e60b228fdd7c8b08ac50e5018fa79ec
+                      3f8cd2ee023386111b0d7a2027e5c1b8
+
+client_handshake_key: 2474bdcd8e8c8dff18af9e169e4470ea
+
+client_handshake_iv:  42fe48bd086cc5ddaf43be4500d0c7f2
+
+server_handshake_key: e0d7ea14104a89cfdf253e1f0e0302b0
+
+server_handshake_iv:  cc421814028367299508e120a7cb3ad2
+</pre><a href="#appendix-A.1-1" class="pilcrow">¶</a>
+</div>
+</section>
+</div>
+<div id="tls-13-handshake-using-tlsaegis256sha512">
+<section id="appendix-A.2">
+        <h3 id="name-tls-13-handshake-using-tls_a">
+<a href="#appendix-A.2" class="section-number selfRef">A.2. </a><a href="#name-tls-13-handshake-using-tls_a" class="section-name selfRef">TLS 1.3 handshake using TLS_AEGIS_256_SHA512</a>
+        </h3>
+<div class="alignLeft art-text artwork" id="appendix-A.2-1">
+<pre>
+shared_key:           724d41a7ccadc6435d4305dd6756bd01
+                      5e26dd0544a19733a2c08430f128b218
+
+hello_hash:           1a8fd72e2630e12817d768bae1248367
+                      30c07141c4ab4cc3423d7f16c3c1a84b
+                      91d4c4194453dbc85fca8738b4e9ea3c
+                      783bb6d99f579fd6c2f599c69c1c79e1
+
+early_secret:         fd4a40cb6252b3c08d9b88d5bde85339
+                      03caa51a1dba1c79ce18eea0365d35d0
+                      71e597a2b95214821100e812f7b79828
+                      498f164707cd63c6f7464973cfa22046
+
+hs_derived_secret:    9f21240de25b0247ff8758c9e3ec82ae
+                      312520f2f88a365b76a413de85d97edc
+                      8a4dc3f0093a900cb81ef2869f50adab
+                      10ae2730971c73ef81c5712b80fdfdff
+
+handshake_secret:     55ef8c23352da78bf1daa4626445c883
+                      b842bec578769fe9ae6fbf6de5c28953
+                      02ec3cbb22b3a94ea1d047ab08cce64e
+                      1079f3dbc9bf08152dc3b0bcd74ac977
+
+client_secret:        728f1edab4426f4dac3f03180b0bc537
+                      a0d555514b439ea4f4cccb5910834807
+                      408d29b9c79dcbff8e3a3fb8bf220907
+                      d96ce595eee7ffaf9f9735e4f6da1e60
+
+client_handshake_key: 08a37693b14937177d75149422944c34
+                      9019de948f6922c2c516d941c0bdafe4
+
+client_handshake_iv:  e0a2155fedcb592a29588bdcf06334f0
+                      4dc6b5c40e659051e62071cb87f8be2c
+
+server_handshake_key: 366e1ebfb124508aa69137ccef542756
+                      c0a748525c5bdc16acd79c66856e7c82
+
+server_handshake_iv:  8f883c1bb0eae38960efdb717f6b19cf
+                      c929d565ad596f1f4b3daab498a7fc29
+</pre><a href="#appendix-A.2-1" class="pilcrow">¶</a>
+</div>
+</section>
+</div>
+<div id="quic-header-protection-with-tlsaegis128lsha256">
+<section id="appendix-A.3">
+        <h3 id="name-quic-header-protection-with">
+<a href="#appendix-A.3" class="section-number selfRef">A.3. </a><a href="#name-quic-header-protection-with" class="section-name selfRef">QUIC header protection with TLS_AEGIS_128L_SHA256</a>
+        </h3>
+<div class="alignLeft art-text artwork" id="appendix-A.3-1">
+<pre>
+sn_key:            000102030405060708090a0b0c0d0e0f
+ciphertext[0..16]: 101112131415161718191a1b1c1d1e1f
+nonce_len:         16
+mask:              60ede1c811
+</pre><a href="#appendix-A.3-1" class="pilcrow">¶</a>
+</div>
+</section>
+</div>
+<div id="quic-header-protection-with-tlsaegis256sha512">
+<section id="appendix-A.4">
+        <h3 id="name-quic-header-protection-with-">
+<a href="#appendix-A.4" class="section-number selfRef">A.4. </a><a href="#name-quic-header-protection-with-" class="section-name selfRef">QUIC header protection with TLS_AEGIS_256_SHA512</a>
+        </h3>
+<div class="alignLeft art-text artwork" id="appendix-A.4-1">
+<pre>
+sn_key:            000102030405060708090a0b0c0d0e0f
+                   101112131415161718191a1b1c1d1e1f
+
+ciphertext[0..16]: 202122232425262728292a2b2c2d2e2f
+nonce_len:         32
+mask:              6e3a2ce297
+</pre><a href="#appendix-A.4-1" class="pilcrow">¶</a>
+</div>
+</section>
+</div>
 </section>
 </div>
 <div id="acknowledgments">
