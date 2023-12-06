@@ -69,7 +69,8 @@ Table of Contents
      4.1.  Cryptographic Negotiation
      4.2.  DTLS 1.3 Record Number Encryption
    5.  QUIC
-     5.1.  QUIC Header Protection
+     5.1.  Cryptographic Negotiation
+     5.2.  QUIC Header Protection
    6.  Security Considerations
    7.  IANA Considerations
    8.  References
@@ -151,7 +152,7 @@ Table of Contents
    reuses the TLS 1.3 mechanisms and cipher suites.
 
    No DTLS-specific changes are required to support the AEGIS-based
-   cipher suites defined in the TLS 1.3 section,
+   cipher suites defined in the TLS 1.3 section of this document.
 
 4.2.  DTLS 1.3 Record Number Encryption
 
@@ -177,12 +178,17 @@ Table of Contents
 
 5.  QUIC
 
-   Same cipher suites as TLS 1.3.
+5.1.  Cryptographic Negotiation
 
-5.1.  QUIC Header Protection
+   QUIC reuses the TLS handshake, as specified in [RFC9001], Section 4.
+
+   No QUIC-specific changes are required to support the AEGIS-based
+   cipher suites defined in the TLS 1.3 section of this document.
+
+5.2.  QUIC Header Protection
 
    In QUIC, parts of the QUIC packet headers are encrypted as specified
-   in [RFC9001].
+   in [RFC9001], Section 5.4.
 
    For AEGIS-128L and AEGIS-256, the mask is generated using the AEGIS
    Encrypt function with:
