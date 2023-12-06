@@ -233,7 +233,7 @@ Table of Contents
             | TLS_AEGIS_256X2_SHA512 |    Y    |      N      |
             +------------------------+---------+-------------+
 
-                                 Table 2
+                        Table 2: IANA identifiers
 
 8.  References
 
