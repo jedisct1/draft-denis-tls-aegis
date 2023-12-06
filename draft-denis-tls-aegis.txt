@@ -201,13 +201,14 @@ Table of Contents
 
    *  hp_key, as defined in [RFC9001], Section 5.4
 
-   *  sample: the 16 bytes QUIC ciphertext sample
+   *  ciphertext[0..16]: the first 16 bytes of the ciphertext
 
-   *  nonce_len: the AEGIS nonce length
+   *  nonce_len: the AEGIS nonce length: 16 or 32, depending on the
+      chosen AEAD algorithm.
 
    The mask is computed as follows:
 
-   mask = Encrypt("", "", hp_key, ZeroPad(sample, nonce_len))
+   mask = Encrypt("", "", hp_key, ZeroPad(ciphertext[0..16], nonce_len))
 
 6.  Security Considerations
 

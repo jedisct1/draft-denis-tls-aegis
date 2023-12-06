@@ -1390,16 +1390,16 @@ mask = Stream(5, sn_key, ZeroPad(ciphertext[0..16], nonce_len))
             <p id="section-5.2-3.2.1"><code>hp_key</code>, as defined in <span>[<a href="#RFC9001" class="cite xref">RFC9001</a>], <a href="https://rfc-editor.org/rfc/rfc9001#section-5.4" class="relref">Section 5.4</a></span><a href="#section-5.2-3.2.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-5.2-3.3">
-            <p id="section-5.2-3.3.1"><code>sample</code>: the 16 bytes QUIC ciphertext sample<a href="#section-5.2-3.3.1" class="pilcrow">¶</a></p>
+            <p id="section-5.2-3.3.1"><code>ciphertext[0..16]</code>: the first 16 bytes of the ciphertext<a href="#section-5.2-3.3.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-5.2-3.4">
-            <p id="section-5.2-3.4.1"><code>nonce_len</code>: the AEGIS nonce length<a href="#section-5.2-3.4.1" class="pilcrow">¶</a></p>
+            <p id="section-5.2-3.4.1"><code>nonce_len</code>: the AEGIS nonce length: 16 or 32, depending on the chosen AEAD algorithm.<a href="#section-5.2-3.4.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
 <p id="section-5.2-4">The mask is computed as follows:<a href="#section-5.2-4" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-5.2-5">
 <pre>
-mask = Encrypt("", "", hp_key, ZeroPad(sample, nonce_len))
+mask = Encrypt("", "", hp_key, ZeroPad(ciphertext[0..16], nonce_len))
 </pre><a href="#section-5.2-5" class="pilcrow">¶</a>
 </div>
 </section>
