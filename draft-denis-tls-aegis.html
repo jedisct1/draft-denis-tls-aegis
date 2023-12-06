@@ -1131,21 +1131,13 @@ svg :is([fill="white"], [fill^="#fff"]) {
             <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-conventions-and-definitions" class="internal xref">Conventions and Definitions</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-usage-with-tls-13" class="internal xref">Usage with TLS 1.3</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.1">
-                <p id="section-toc.1-1.3.2.1.1" class="keepWithNext"><a href="#section-3.1" class="auto internal xref">3.1</a>.  <a href="#name-cryptographic-negotiation" class="internal xref">Cryptographic Negotiation</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.2">
-                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="auto internal xref">3.2</a>.  <a href="#name-tls-record-payload-protecti" class="internal xref">TLS Record Payload Protection</a></p>
-</li>
-            </ul>
+            <p id="section-toc.1-1.3.1" class="keepWithNext"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-new-cipher-suites-and-prese" class="internal xref">New Cipher Suites and Preservation of TLS 1.3 Mechanisms</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-usage-with-dtls-13" class="internal xref">Usage with DTLS 1.3</a></p>
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-new-cipher-suites-usage-wit" class="internal xref">New Cipher Suites Usage with DTLS 1.3</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
-                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-cryptographic-negotiation-2" class="internal xref">Cryptographic Negotiation</a></p>
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-cryptographic-negotiation" class="internal xref">Cryptographic Negotiation</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
                 <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-dtls-13-record-number-encry" class="internal xref">DTLS 1.3 Record Number Encryption</a></p>
@@ -1153,10 +1145,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-usage-with-quic" class="internal xref">Usage with QUIC</a></p>
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-new-cipher-suites-usage-with" class="internal xref">New Cipher Suites Usage with QUIC</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1">
-                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="auto internal xref">5.1</a>.  <a href="#name-cryptographic-negotiation-3" class="internal xref">Cryptographic Negotiation</a></p>
+                <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="auto internal xref">5.1</a>.  <a href="#name-cryptographic-negotiation-2" class="internal xref">Cryptographic Negotiation</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2">
                 <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="auto internal xref">5.2</a>.  <a href="#name-quic-header-protection" class="internal xref">QUIC Header Protection</a></p>
@@ -1260,89 +1252,77 @@ described in BCP 14 <span>[<a href="#RFC2119" class="cite xref">RFC2119</a>]</s
 appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="usage-with-tls-13">
+<div id="new-cipher-suites-and-preservation-of-tls-13-mechanisms">
 <section id="section-3">
-      <h2 id="name-usage-with-tls-13">
-<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-usage-with-tls-13" class="section-name selfRef">Usage with TLS 1.3</a>
+      <h2 id="name-new-cipher-suites-and-prese">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-new-cipher-suites-and-prese" class="section-name selfRef">New Cipher Suites and Preservation of TLS 1.3 Mechanisms</a>
       </h2>
-<div id="cryptographic-negotiation">
-<section id="section-3.1">
-        <h3 id="name-cryptographic-negotiation">
-<a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-cryptographic-negotiation" class="section-name selfRef">Cryptographic Negotiation</a>
-        </h3>
-<p id="section-3.1-1">The cryptographic negotiation as specified in <span>[<a href="#RFC8446" class="cite xref">RFC8446</a>], <a href="https://rfc-editor.org/rfc/rfc8446#section-4.1.1" class="relref">Section 4.1.1</a></span> remains the same, with the inclusion of the following cipher suites:<a href="#section-3.1-1" class="pilcrow">¶</a></p>
+<p id="section-3-1">The TLS 1.3 protocol includes a set of mandatory cipher suites listed in <span>[<a href="#RFC8446" class="cite xref">RFC8446</a>], <a href="https://rfc-editor.org/rfc/rfc8446#section-9.1" class="relref">Section 9.1</a></span>.<a href="#section-3-1" class="pilcrow">¶</a></p>
+<p id="section-3-2">Each cipher suite denotes the Authenticated Encryption with Associated Data (AEAD) algorithm for record protection, along with the designated hash algorithm for use with the HMAC-based Key Derivation Function (HKDF).<a href="#section-3-2" class="pilcrow">¶</a></p>
+<p id="section-3-3">The cipher suites and cryptographic negotiation mechanisms established in TLS 1.3 are reused by the DTLS 1.3 and QUIC protocols.<a href="#section-3-3" class="pilcrow">¶</a></p>
+<p id="section-3-4">To accommodate AEGIS-based encryption algorithms, this document introduces additional cipher suites to those specified in <span>[<a href="#RFC8446" class="cite xref">RFC8446</a>], <a href="https://rfc-editor.org/rfc/rfc8446#section-9.1" class="relref">Section 9.1</a></span>:<a href="#section-3-4" class="pilcrow">¶</a></p>
 <span id="name-aegis-based-cipher-suites"></span><table class="center" id="table-1">
-          <caption>
+        <caption>
 <a href="#table-1" class="selfRef">Table 1</a>:
 <a href="#name-aegis-based-cipher-suites" class="selfRef">AEGIS-based cipher suites</a>
-          </caption>
+        </caption>
 <thead>
-            <tr>
-              <th class="text-left" rowspan="1" colspan="1">Cipher suite name</th>
-              <th class="text-left" rowspan="1" colspan="1">AEAD algorithm</th>
-              <th class="text-left" rowspan="1" colspan="1">Hash algorithm</th>
-              <th class="text-left" rowspan="1" colspan="1">Confidentiality level</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>TLS_AEGIS_128L_SHA256</code>
+          <tr>
+            <th class="text-left" rowspan="1" colspan="1">Cipher suite name</th>
+            <th class="text-left" rowspan="1" colspan="1">AEAD algorithm</th>
+            <th class="text-left" rowspan="1" colspan="1">Hash algorithm</th>
+            <th class="text-left" rowspan="1" colspan="1">Confidentiality level</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">
+              <code>TLS_AEGIS_128L_SHA256</code>
 </td>
-              <td class="text-left" rowspan="1" colspan="1">AEGIS-128L</td>
-              <td class="text-left" rowspan="1" colspan="1">SHA256</td>
-              <td class="text-left" rowspan="1" colspan="1">128 bits</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>TLS_AEGIS_128X2_SHA256</code>
+            <td class="text-left" rowspan="1" colspan="1">AEGIS-128L</td>
+            <td class="text-left" rowspan="1" colspan="1">SHA256</td>
+            <td class="text-left" rowspan="1" colspan="1">128 bits</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">
+              <code>TLS_AEGIS_128X2_SHA256</code>
 </td>
-              <td class="text-left" rowspan="1" colspan="1">AEGIS-128X2</td>
-              <td class="text-left" rowspan="1" colspan="1">SHA256</td>
-              <td class="text-left" rowspan="1" colspan="1">128 bits</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>TLS_AEGIS_256_SHA512</code>
+            <td class="text-left" rowspan="1" colspan="1">AEGIS-128X2</td>
+            <td class="text-left" rowspan="1" colspan="1">SHA256</td>
+            <td class="text-left" rowspan="1" colspan="1">128 bits</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">
+              <code>TLS_AEGIS_256_SHA512</code>
 </td>
-              <td class="text-left" rowspan="1" colspan="1">AEGIS-256</td>
-              <td class="text-left" rowspan="1" colspan="1">SHA512</td>
-              <td class="text-left" rowspan="1" colspan="1">256 bits</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">
-                <code>TLS_AEGIS_256X2_SHA512</code>
+            <td class="text-left" rowspan="1" colspan="1">AEGIS-256</td>
+            <td class="text-left" rowspan="1" colspan="1">SHA512</td>
+            <td class="text-left" rowspan="1" colspan="1">256 bits</td>
+          </tr>
+          <tr>
+            <td class="text-left" rowspan="1" colspan="1">
+              <code>TLS_AEGIS_256X2_SHA512</code>
 </td>
-              <td class="text-left" rowspan="1" colspan="1">AEGIS-256X2</td>
-              <td class="text-left" rowspan="1" colspan="1">SHA512</td>
-              <td class="text-left" rowspan="1" colspan="1">256 bits</td>
-            </tr>
-          </tbody>
-        </table>
-<p id="section-3.1-3">As defined in <span>[<a href="#RFC8446" class="cite xref">RFC8446</a>]</span>, TLS 1.3 cipher suites denote the Authenticated Encryption with Associated Data (AEAD) algorithm for record protection and the hash algorithm to use with the HMAC-based Key Derivation Function (HKDF).<a href="#section-3.1-3" class="pilcrow">¶</a></p>
-<p id="section-3.1-4">For TLS 1.3, DTLS 1.3 and QUIC, AEGIS encryption algorithms <span class="bcp14">MUST</span> be used with a 128-bit authentication tag.<a href="#section-3.1-4" class="pilcrow">¶</a></p>
-<p id="section-3.1-5">(Link to <span>[<a href="#M23" class="cite xref">M23</a>]</span> to justify SHA512)<a href="#section-3.1-5" class="pilcrow">¶</a></p>
+            <td class="text-left" rowspan="1" colspan="1">AEGIS-256X2</td>
+            <td class="text-left" rowspan="1" colspan="1">SHA512</td>
+            <td class="text-left" rowspan="1" colspan="1">256 bits</td>
+          </tr>
+        </tbody>
+      </table>
+<p id="section-3-6">AEGIS algorithms support both 128-bit and 256-bit authentication tags. For all the protocols referenced herein, these algorithms <span class="bcp14">MUST</span> be utilized with a 128-bit authentication tag.<a href="#section-3-6" class="pilcrow">¶</a></p>
+<p id="section-3-7">With the inclusion of these new cipher suites, the cryptographic negotiation mechanism in TLS 1.3, as outlined in <span>[<a href="#RFC8446" class="cite xref">RFC8446</a>], <a href="https://rfc-editor.org/rfc/rfc8446#section-4.1.1" class="relref">Section 4.1.1</a></span>, remains unchanged, as does the record payload protection mechanism specified in <span>[<a href="#RFC8446" class="cite xref">RFC8446</a>], <a href="https://rfc-editor.org/rfc/rfc8446#section-5.2" class="relref">Section 5.2</a></span>.<a href="#section-3-7" class="pilcrow">¶</a></p>
+<p id="section-3-8">(Link to <span>[<a href="#M23" class="cite xref">M23</a>]</span> to justify SHA512)<a href="#section-3-8" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="tls-record-payload-protection">
-<section id="section-3.2">
-        <h3 id="name-tls-record-payload-protecti">
-<a href="#section-3.2" class="section-number selfRef">3.2. </a><a href="#name-tls-record-payload-protecti" class="section-name selfRef">TLS Record Payload Protection</a>
-        </h3>
-<p id="section-3.2-1">Record payload protection as defined in <span>[<a href="#RFC8446" class="cite xref">RFC8446</a>]</span> is retained for these new cipher suites.<a href="#section-3.2-1" class="pilcrow">¶</a></p>
-</section>
-</div>
-</section>
-</div>
-<div id="usage-with-dtls-13">
+<div id="new-cipher-suites-usage-with-dtls-13">
 <section id="section-4">
-      <h2 id="name-usage-with-dtls-13">
-<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-usage-with-dtls-13" class="section-name selfRef">Usage with DTLS 1.3</a>
+      <h2 id="name-new-cipher-suites-usage-wit">
+<a href="#section-4" class="section-number selfRef">4. </a><a href="#name-new-cipher-suites-usage-wit" class="section-name selfRef">New Cipher Suites Usage with DTLS 1.3</a>
       </h2>
-<div id="cryptographic-negotiation-1">
+<div id="cryptographic-negotiation">
 <section id="section-4.1">
-        <h3 id="name-cryptographic-negotiation-2">
-<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-cryptographic-negotiation-2" class="section-name selfRef">Cryptographic Negotiation</a>
+        <h3 id="name-cryptographic-negotiation">
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-cryptographic-negotiation" class="section-name selfRef">Cryptographic Negotiation</a>
         </h3>
 <p id="section-4.1-1">The DTLS 1.3 handshake is specified in <span>[<a href="#RFC9147" class="cite xref">RFC9147</a>], <a href="https://rfc-editor.org/rfc/rfc9147#section-5" class="relref">Section 5</a></span> and reuses the TLS 1.3 mechanisms and cipher suites.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
 <p id="section-4.1-2">No DTLS-specific changes are required to support the AEGIS-based cipher suites defined in the TLS 1.3 section of this document.<a href="#section-4.1-2" class="pilcrow">¶</a></p>
@@ -1379,15 +1359,15 @@ mask = Stream(5, sn_key, ZeroPad(ciphertext[0..16], nonce_len))
 </div>
 </section>
 </div>
-<div id="usage-with-quic">
+<div id="new-cipher-suites-usage-with-quic">
 <section id="section-5">
-      <h2 id="name-usage-with-quic">
-<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-usage-with-quic" class="section-name selfRef">Usage with QUIC</a>
+      <h2 id="name-new-cipher-suites-usage-with">
+<a href="#section-5" class="section-number selfRef">5. </a><a href="#name-new-cipher-suites-usage-with" class="section-name selfRef">New Cipher Suites Usage with QUIC</a>
       </h2>
-<div id="cryptographic-negotiation-2">
+<div id="cryptographic-negotiation-1">
 <section id="section-5.1">
-        <h3 id="name-cryptographic-negotiation-3">
-<a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-cryptographic-negotiation-3" class="section-name selfRef">Cryptographic Negotiation</a>
+        <h3 id="name-cryptographic-negotiation-2">
+<a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-cryptographic-negotiation-2" class="section-name selfRef">Cryptographic Negotiation</a>
         </h3>
 <p id="section-5.1-1">QUIC reuses the TLS handshake, as specified in <span>[<a href="#RFC9001" class="cite xref">RFC9001</a>], <a href="https://rfc-editor.org/rfc/rfc9001#section-4" class="relref">Section 4</a></span>.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
 <p id="section-5.1-2">No QUIC-specific changes are required to support the AEGIS-based cipher suites defined in the TLS 1.3 section of this document.<a href="#section-5.1-2" class="pilcrow">¶</a></p>
