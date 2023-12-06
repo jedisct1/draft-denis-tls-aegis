@@ -159,9 +159,8 @@ Table of Contents
    In DTLS 1.3, record sequence numbers are encrypted as specified in
    [RFC9147], Section 4.2.3.
 
-   For AEGIS-128L and AEGIS-256, the mask is generated using the AEGIS
-   Stream function defined in (TODO: link to the AEGIS RFC and section)
-   with:
+   For AEGIS, the mask is generated using the AEGIS Stream function
+   defined in (TODO: link to the AEGIS RFC and section) with:
 
    *  a 128-bit tag length
 
