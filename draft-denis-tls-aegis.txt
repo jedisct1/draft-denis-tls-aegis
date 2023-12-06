@@ -223,13 +223,19 @@ Table of Contents
    IANA is requested to register the following identifiers in the TLS
    Cipher Suite Registry:
 
-   *  TLS_AEGIS_128L_SHA256
+            +========================+=========+=============+
+            | Description            | DTLS-OK | Recommended |
+            +========================+=========+=============+
+            | TLS_AEGIS_128L_SHA256  |    Y    |      N      |
+            +------------------------+---------+-------------+
+            | TLS_AEGIS_128X2_SHA512 |    Y    |      N      |
+            +------------------------+---------+-------------+
+            | TLS_AEGIS_256_SHA256   |    Y    |      N      |
+            +------------------------+---------+-------------+
+            | TLS_AEGIS_256X2_SHA512 |    Y    |      N      |
+            +------------------------+---------+-------------+
 
-   *  TLS_AEGIS_128X2_SHA256
-
-   *  TLS_AEGIS_256_SHA512
-
-   *  TLS_AEGIS_256X2_SHA512
+                                 Table 2
 
 8.  References
 
