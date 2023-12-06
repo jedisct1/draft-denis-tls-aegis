@@ -62,18 +62,37 @@ Table of Contents
 
    1.  Introduction
    2.  Conventions and Definitions
-   3.  DTLS 1.3 and QUIC Header Protection
-     3.1.  DTLS 1.3 Record Number Encryption
-     3.2.  QUIC Header Protection
-   4.  Security Considerations
-   5.  IANA Considerations
-   6.  Normative References
+   3.  TLS 1.3
+     3.1.  Cryptographic Negotiation
+     3.2.  TLS Record Payload Protection
+   4.  DTLS 1.3
+     4.1.  DTLS 1.3 Record Number Encryption
+   5.  QUIC
+     5.1.  QUIC Header Protection
+   6.  Security Considerations
+   7.  IANA Considerations
+   8.  Normative References
+   Appendix A.  Test Vectors
    Acknowledgments
    Author's Address
 
 1.  Introduction
 
-   TODO Introduction
+   TODO Introduction:
+
+   Why AEGIS for TLS?
+
+   *  Alternative to AES-GCM, targets the same hardware class, but:
+
+   *  Lower memory requirements (no key schedule, no precomputation
+      tables)
+
+   *  Higher usage limits (only dependent on the tag size), doesn’t
+      require rekeying as frequently as other options
+
+   *  Higher performance
+
+   Integration is simple, same interface as existing TLS 1.3 ciphers.
 
 2.  Conventions and Definitions
 
@@ -83,9 +102,43 @@ Table of Contents
    BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
    capitals, as shown here.
 
-3.  DTLS 1.3 and QUIC Header Protection
+3.  TLS 1.3
 
-3.1.  DTLS 1.3 Record Number Encryption
+3.1.  Cryptographic Negotiation
+
+   The cryptographic negotiation as specified in [RFC8446],
+   Section 4.1.1 remains the same, with the inclusion of the following
+   cipher suites:
+
+    +========================+================+===========+==========+
+    | Cipher suite           | AEAD algorithm | Hash      | Security |
+    |                        |                | algorithm | level    |
+    +========================+================+===========+==========+
+    | TLS_AEGIS_128L_SHA256  | AEGIS-128L     | SHA256    | 128 bits |
+    +------------------------+----------------+-----------+----------+
+    | TLS_AEGIS_128X2_SHA256 | AEGIS-128X2    | SHA256    | 128 bits |
+    +------------------------+----------------+-----------+----------+
+    | TLS_AEGIS_256_SHA512   | AEGIS-256      | SHA512    | 256 bits |
+    +------------------------+----------------+-----------+----------+
+    | TLS_AEGIS_256X2_SHA512 | AEGIS-256X2    | SHA512    | 256 bits |
+    +------------------------+----------------+-----------+----------+
+
+                                 Table 1
+
+   As defined in [RFC8446], TLS 1.3 cipher suites denote the
+   Authenticated Encryption with Associated Data (AEAD) algorithm for
+   record protection and the hash algorithm to use with the HMAC-based
+   Key Derivation Function (HKDF).
+
+3.2.  TLS Record Payload Protection
+
+   Record payload protection as defined in [RFC8446] is retained.
+
+4.  DTLS 1.3
+
+   Same cipher suites as TLS 1.3.
+
+4.1.  DTLS 1.3 Record Number Encryption
 
    In DTLS 1.3, record sequence numbers are encrypted as specified in
    [RFC9147].
@@ -105,7 +158,11 @@ Table of Contents
 
    mask = Stream(5, sn_key, ZeroPad(ciphertext[0..16], nonce_len))
 
-3.2.  QUIC Header Protection
+5.  QUIC
+
+   Same cipher suites as TLS 1.3.
+
+5.1.  QUIC Header Protection
 
    In QUIC, parts of the QUIC packet headers are encrypted as specified
    in [RFC9001].
@@ -125,11 +182,13 @@ Table of Contents
 
    mask = Encrypt("", "", hp_key, ZeroPad(sample, nonce_len))
 
-4.  Security Considerations
+6.  Security Considerations
 
    TODO Security
 
-5.  IANA Considerations
+   *  Rekeying must be done before 2^48 records.
+
+7.  IANA Considerations
 
    IANA is requested to register the following identifiers in the TLS
    Cipher Suite Registry:
@@ -142,7 +201,7 @@ Table of Contents
 
    *  TLS_AEGIS_256X2_SHA512
 
-6.  Normative References
+8.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -170,6 +229,10 @@ Table of Contents
               Datagram Transport Layer Security (DTLS) Protocol Version
               1.3", RFC 9147, DOI 10.17487/RFC9147, April 2022,
               <https://www.rfc-editor.org/rfc/rfc9147>.
+
+Appendix A.  Test Vectors
+
+   Everybody likes test vectors.
 
 Acknowledgments
 
