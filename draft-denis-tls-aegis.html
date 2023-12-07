@@ -1226,7 +1226,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <h2 id="name-introduction-and-rationale">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction-and-rationale" class="section-name selfRef">Introduction and rationale</a>
       </h2>
-<p id="section-1-1">AEGIS <span>[<a href="#AEGIS" class="cite xref">AEGIS</a>]</span> is a family of authenticated encryption algorithms designed for high-performance applications. AEGIS caters to the same hardware class as AES-GCM, distinguishing itself through the following key attributes:<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-1">AEGIS <span>[<a href="#I-D.irtf-cfrg-aegis-aead" class="cite xref">I-D.irtf-cfrg-aegis-aead</a>]</span> is a family of authenticated encryption algorithms designed for high-performance applications. AEGIS caters to the same hardware class as AES-GCM, distinguishing itself through the following key attributes:<a href="#section-1-1" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-1-2">
 <li id="section-1-2.1">
           <p id="section-1-2.1.1">Reduced memory requirements: AEGIS eliminates the necessity for a key schedule and precomputation tables, resulting in lower memory demands. This characteristic proves particularly advantageous for servers managing a substantial volume of connections.<a href="#section-1-2.1.1" class="pilcrow">¶</a></p>
@@ -1321,7 +1321,7 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-dtls-13-record-number-encry" class="section-name selfRef">DTLS 1.3 Record Number Encryption</a>
       </h2>
 <p id="section-4-1">In DTLS 1.3, encryption of record sequence numbers follows the specifications detailed in <span>[<a href="#RFC9147" class="cite xref">RFC9147</a>], <a href="https://rfc-editor.org/rfc/rfc9147#section-4.2.3" class="relref">Section 4.2.3</a></span>.<a href="#section-4-1" class="pilcrow">¶</a></p>
-<p id="section-4-2">For AEGIS-based cipher suites, the mask is generated using the AEGIS <code>Stream</code> and <code>ZeroPad</code> functions defined in <span>[<a href="#AEGIS" class="cite xref">AEGIS</a>]</span> with:<a href="#section-4-2" class="pilcrow">¶</a></p>
+<p id="section-4-2">For AEGIS-based cipher suites, the mask is generated using the AEGIS <code>Stream</code> and <code>ZeroPad</code> functions defined in <span>[<a href="#I-D.irtf-cfrg-aegis-aead" class="cite xref">I-D.irtf-cfrg-aegis-aead</a>]</span> with:<a href="#section-4-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4-3.1">
           <p id="section-4-3.1.1">a 128-bit tag length<a href="#section-4-3.1.1" class="pilcrow">¶</a></p>
@@ -1493,9 +1493,9 @@ mask = Stream(5, hp_key, ZeroPad(ciphertext[0..16], nonce_len))
 <a href="#section-10.2" class="section-number selfRef">10.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
-<dt id="AEGIS">[AEGIS]</dt>
+<dt id="I-D.irtf-cfrg-aegis-aead">[I-D.irtf-cfrg-aegis-aead]</dt>
         <dd>
-<span class="refTitle">"The AEGIS Family of Authenticated Encryption Algorithms"</span>, <time datetime="2023" class="refDate">2023</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/draft-irtf-cfrg-aegis-aead/">https://datatracker.ietf.org/doc/draft-irtf-cfrg-aegis-aead/</a>&gt;</span>. </dd>
+<span class="refAuthor">Denis, F.</span> and <span class="refAuthor">S. Lucas</span>, <span class="refTitle">"The AEGIS Family of Authenticated Encryption Algorithms"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-irtf-cfrg-aegis-aead-09</span>, <time datetime="2023-12-05" class="refDate">5 December 2023</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-aegis-aead-09">https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-aegis-aead-09</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="M23">[M23]</dt>
       <dd>

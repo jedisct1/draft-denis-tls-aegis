@@ -90,10 +90,10 @@ Table of Contents
 
 1.  Introduction and rationale
 
-   AEGIS [AEGIS] is a family of authenticated encryption algorithms
-   designed for high-performance applications.  AEGIS caters to the same
-   hardware class as AES-GCM, distinguishing itself through the
-   following key attributes:
+   AEGIS [I-D.irtf-cfrg-aegis-aead] is a family of authenticated
+   encryption algorithms designed for high-performance applications.
+   AEGIS caters to the same hardware class as AES-GCM, distinguishing
+   itself through the following key attributes:
 
    1.  Reduced memory requirements: AEGIS eliminates the necessity for a
        key schedule and precomputation tables, resulting in lower memory
@@ -175,7 +175,8 @@ Table of Contents
    specifications detailed in [RFC9147], Section 4.2.3.
 
    For AEGIS-based cipher suites, the mask is generated using the AEGIS
-   Stream and ZeroPad functions defined in [AEGIS] with:
+   Stream and ZeroPad functions defined in [I-D.irtf-cfrg-aegis-aead]
+   with:
 
    *  a 128-bit tag length
 
@@ -288,9 +289,12 @@ Table of Contents
 
 10.2.  Informative References
 
-   [AEGIS]    "The AEGIS Family of Authenticated Encryption Algorithms",
-              2023, <https://datatracker.ietf.org/doc/draft-irtf-cfrg-
-              aegis-aead/>.
+   [I-D.irtf-cfrg-aegis-aead]
+              Denis, F. and S. Lucas, "The AEGIS Family of Authenticated
+              Encryption Algorithms", Work in Progress, Internet-Draft,
+              draft-irtf-cfrg-aegis-aead-09, 5 December 2023,
+              <https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-
+              aegis-aead-09>.
 
    [M23]      Mattsson, J. P., "Hidden Stream Ciphers and TMTO Attacks
               on TLS 1.3, DTLS 1.3, QUIC, and Signal", Cryptology ePrint
