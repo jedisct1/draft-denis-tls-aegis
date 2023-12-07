@@ -274,6 +274,18 @@ nonce_len:            16
 mask:                 60ede1c811
 ~~~
 
+### With TLS_AEGIS_128X2_SHA256
+
+~~~
+key:                  000102030405060708090a0b0c0d0e0f
+
+ciphertext[0..16]:    101112131415161718191a1b1c1d1e1f
+
+nonce_len:            16
+
+mask:                 6bf2292472
+~~~
+
 ### With TLS_AEGIS_256_SHA512
 
 ~~~
@@ -285,6 +297,19 @@ ciphertext[0..16]:    202122232425262728292a2b2c2d2e2f
 nonce_len:            32
 
 mask:                 6e3a2ce297
+~~~
+
+### With TLS_AEGIS_256X2_SHA512
+
+~~~
+key:                  000102030405060708090a0b0c0d0e0f
+                      101112131415161718191a1b1c1d1e1f
+
+ciphertext[0..16]:    202122232425262728292a2b2c2d2e2f
+
+nonce_len:            32
+
+mask:                 7a515cfb0c
 ~~~
 
 # Acknowledgments
