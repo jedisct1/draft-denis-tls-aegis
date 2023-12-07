@@ -6,6 +6,7 @@
 <meta content="initial-scale=1.0" name="viewport">
 <title>AEGIS-based Cipher Suites for TLS 1.3, DTLS 1.3 and QUIC</title>
 <meta content="Frank Denis" name="author">
+<meta content="Samuel Lucas" name="author">
 <meta content="
        This documents proposes new cipher suites based on the AEGIS family of authenticated encryption algorithms for integration into the TLS 1.3, DTLS 1.3, and QUIC protocols. 
     " name="description">
@@ -1032,7 +1033,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <td class="right">December 2023</td>
 </tr></thead>
 <tfoot><tr>
-<td class="left">Denis</td>
+<td class="left">Denis &amp; Lucas</td>
 <td class="center">Expires 9 June 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
@@ -1052,11 +1053,15 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
 <dd class="expires"><time datetime="2024-06-09">9 June 2024</time></dd>
-<dt class="label-authors">Author:</dt>
+<dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
       <div class="author-name">F. Denis</div>
 <div class="org">Fastly Inc.</div>
+</div>
+<div class="author">
+      <div class="author-name">S. Lucas</div>
+<div class="org">Individual Contributor</div>
 </div>
 </dd>
 </dl>
@@ -1143,65 +1148,68 @@ svg :is([fill="white"], [fill^="#fff"]) {
             <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-operational-considerations" class="internal xref">Operational Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-implementation-status" class="internal xref">Implementation Status</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#section-9" class="auto internal xref">9</a>.  <a href="#name-references" class="internal xref">References</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.1">
-                <p id="section-toc.1-1.9.2.1.1"><a href="#section-9.1" class="auto internal xref">9.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9.2.2">
-                <p id="section-toc.1-1.9.2.2.1"><a href="#section-9.2" class="auto internal xref">9.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
-</li>
-            </ul>
+            <p id="section-toc.1-1.9.1"><a href="#section-9" class="auto internal xref">9</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10">
-            <p id="section-toc.1-1.10.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-examples" class="internal xref">Examples</a></p>
+            <p id="section-toc.1-1.10.1"><a href="#section-10" class="auto internal xref">10</a>. <a href="#name-references" class="internal xref">References</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.1">
-                <p id="section-toc.1-1.10.2.1.1"><a href="#appendix-A.1" class="auto internal xref">A.1</a>.  <a href="#name-tls-13-handshake" class="internal xref">TLS 1.3 Handshake</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.1.2.1">
-                    <p id="section-toc.1-1.10.2.1.2.1.1"><a href="#appendix-A.1.1" class="auto internal xref">A.1.1</a>.  <a href="#name-with-tls_aegis_128l_sha256" class="internal xref">With TLS_AEGIS_128L_SHA256</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.1.2.2">
-                    <p id="section-toc.1-1.10.2.1.2.2.1"><a href="#appendix-A.1.2" class="auto internal xref">A.1.2</a>.  <a href="#name-with-tls_aegis_256_sha512" class="internal xref">With TLS_AEGIS_256_SHA512</a></p>
-</li>
-                </ul>
+                <p id="section-toc.1-1.10.2.1.1"><a href="#section-10.1" class="auto internal xref">10.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.2">
-                <p id="section-toc.1-1.10.2.2.1"><a href="#appendix-A.2" class="auto internal xref">A.2</a>.  <a href="#name-tls-13-nonces-for-record-en" class="internal xref">TLS 1.3 Nonces for Record Encryption</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.2.2.1">
-                    <p id="section-toc.1-1.10.2.2.2.1.1"><a href="#appendix-A.2.1" class="auto internal xref">A.2.1</a>.  <a href="#name-with-tls_aegis_128l_sha256-2" class="internal xref">With TLS_AEGIS_128L_SHA256</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.2.2.2">
-                    <p id="section-toc.1-1.10.2.2.2.2.1"><a href="#appendix-A.2.2" class="auto internal xref">A.2.2</a>.  <a href="#name-with-tls_aegis_128l_sha512" class="internal xref">With TLS_AEGIS_128L_SHA512</a></p>
-</li>
-                </ul>
-</li>
-              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.3">
-                <p id="section-toc.1-1.10.2.3.1"><a href="#appendix-A.3" class="auto internal xref">A.3</a>.  <a href="#name-dtls-13-and-quic-header-pro" class="internal xref">DTLS 1.3 and QUIC Header Protection Mask</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.3.2.1">
-                    <p id="section-toc.1-1.10.2.3.2.1.1"><a href="#appendix-A.3.1" class="auto internal xref">A.3.1</a>.  <a href="#name-with-tls_aegis_128l_sha256-3" class="internal xref">With TLS_AEGIS_128L_SHA256</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.10.2.3.2.2">
-                    <p id="section-toc.1-1.10.2.3.2.2.1"><a href="#appendix-A.3.2" class="auto internal xref">A.3.2</a>.  <a href="#name-with-tls_aegis_256_sha512-2" class="internal xref">With TLS_AEGIS_256_SHA512</a></p>
-</li>
-                </ul>
+                <p id="section-toc.1-1.10.2.2.1"><a href="#section-10.2" class="auto internal xref">10.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
 </li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11">
-            <p id="section-toc.1-1.11.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+            <p id="section-toc.1-1.11.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-examples" class="internal xref">Examples</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.1">
+                <p id="section-toc.1-1.11.2.1.1"><a href="#appendix-A.1" class="auto internal xref">A.1</a>.  <a href="#name-tls-13-handshake" class="internal xref">TLS 1.3 Handshake</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.1.2.1">
+                    <p id="section-toc.1-1.11.2.1.2.1.1"><a href="#appendix-A.1.1" class="auto internal xref">A.1.1</a>.  <a href="#name-with-tls_aegis_128l_sha256" class="internal xref">With TLS_AEGIS_128L_SHA256</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.1.2.2">
+                    <p id="section-toc.1-1.11.2.1.2.2.1"><a href="#appendix-A.1.2" class="auto internal xref">A.1.2</a>.  <a href="#name-with-tls_aegis_256_sha512" class="internal xref">With TLS_AEGIS_256_SHA512</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.2">
+                <p id="section-toc.1-1.11.2.2.1"><a href="#appendix-A.2" class="auto internal xref">A.2</a>.  <a href="#name-tls-13-nonces-for-record-en" class="internal xref">TLS 1.3 Nonces for Record Encryption</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.2.2.1">
+                    <p id="section-toc.1-1.11.2.2.2.1.1"><a href="#appendix-A.2.1" class="auto internal xref">A.2.1</a>.  <a href="#name-with-tls_aegis_128l_sha256-2" class="internal xref">With TLS_AEGIS_128L_SHA256</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.2.2.2">
+                    <p id="section-toc.1-1.11.2.2.2.2.1"><a href="#appendix-A.2.2" class="auto internal xref">A.2.2</a>.  <a href="#name-with-tls_aegis_128l_sha512" class="internal xref">With TLS_AEGIS_128L_SHA512</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.3">
+                <p id="section-toc.1-1.11.2.3.1"><a href="#appendix-A.3" class="auto internal xref">A.3</a>.  <a href="#name-dtls-13-and-quic-header-pro" class="internal xref">DTLS 1.3 and QUIC Header Protection Mask</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.3.2.1">
+                    <p id="section-toc.1-1.11.2.3.2.1.1"><a href="#appendix-A.3.1" class="auto internal xref">A.3.1</a>.  <a href="#name-with-tls_aegis_128l_sha256-3" class="internal xref">With TLS_AEGIS_128L_SHA256</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.11.2.3.2.2">
+                    <p id="section-toc.1-1.11.2.3.2.2.1"><a href="#appendix-A.3.2" class="auto internal xref">A.3.2</a>.  <a href="#name-with-tls_aegis_256_sha512-2" class="internal xref">With TLS_AEGIS_256_SHA512</a></p>
+</li>
+                </ul>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.12">
-            <p id="section-toc.1-1.12.1"><a href="#appendix-C" class="auto internal xref"></a><a href="#name-authors-address" class="internal xref">Author's Address</a></p>
+            <p id="section-toc.1-1.12.1"><a href="#appendix-B" class="auto internal xref"></a><a href="#name-acknowledgments" class="internal xref">Acknowledgments</a></p>
+</li>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.13">
+            <p id="section-toc.1-1.13.1"><a href="#appendix-C" class="auto internal xref"></a><a href="#name-authors-addresses" class="internal xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1368,20 +1376,29 @@ mask = Stream(5, hp_key, ZeroPad(ciphertext[0..16], nonce_len))
 <p id="section-6-2">On devices equipped with secure hardware AES acceleration, implementations <span class="bcp14">SHOULD</span> prioritize AEGIS-based cipher suites over AES-GCM ones of equivalent security levels.<a href="#section-6-2" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="security-considerations">
+<div id="implementation-status">
 <section id="section-7">
-      <h2 id="name-security-considerations">
-<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+      <h2 id="name-implementation-status">
+<a href="#section-7" class="section-number selfRef">7. </a><a href="#name-implementation-status" class="section-name selfRef">Implementation Status</a>
       </h2>
-<p id="section-7-1">A key update <span class="bcp14">MUST</span> be performed prior to encrypting 2<sup>48</sup> records with the same key. The prescribed mechanism is documented in <span>[<a href="#RFC8446" class="cite xref">RFC8446</a>], <a href="https://rfc-editor.org/rfc/rfc8446#section-4.6.3" class="relref">Section 4.6.3</a></span>.<a href="#section-7-1" class="pilcrow">¶</a></p>
+<p id="section-7-1"><em>This note is to be removed before publishing as an RFC.</em><a href="#section-7-1" class="pilcrow">¶</a></p>
+<p id="section-7-2">A list of early implementations can be found at <span><a href="https://github.com/jedisct1/draft-denis-tls-aead">https://github.com/jedisct1/draft-denis-tls-aead</a></span>,<a href="#section-7-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="security-considerations">
+<section id="section-8">
+      <h2 id="name-security-considerations">
+<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
+      </h2>
+<p id="section-8-1">A key update <span class="bcp14">MUST</span> be performed prior to encrypting 2<sup>48</sup> records with the same key. The prescribed mechanism is documented in <span>[<a href="#RFC8446" class="cite xref">RFC8446</a>], <a href="https://rfc-editor.org/rfc/rfc8446#section-4.6.3" class="relref">Section 4.6.3</a></span>.<a href="#section-8-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">
-<section id="section-8">
+<section id="section-9">
       <h2 id="name-iana-considerations">
-<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
+<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-8-1">IANA is requested to register the following identifiers in the TLS Cipher Suite Registry:<a href="#section-8-1" class="pilcrow">¶</a></p>
+<p id="section-9-1">IANA is requested to register the following identifiers in the TLS Cipher Suite Registry:<a href="#section-9-1" class="pilcrow">¶</a></p>
 <span id="name-requested-iana-identifiers"></span><table class="center" id="table-2">
         <caption>
 <a href="#table-2" class="selfRef">Table 2</a>:
@@ -1427,14 +1444,14 @@ mask = Stream(5, hp_key, ZeroPad(ciphertext[0..16], nonce_len))
       </table>
 </section>
 </div>
-<section id="section-9">
+<section id="section-10">
       <h2 id="name-references">
-<a href="#section-9" class="section-number selfRef">9. </a><a href="#name-references" class="section-name selfRef">References</a>
+<a href="#section-10" class="section-number selfRef">10. </a><a href="#name-references" class="section-name selfRef">References</a>
       </h2>
 <div id="sec-normative-references">
-<section id="section-9.1">
+<section id="section-10.1">
         <h3 id="name-normative-references">
-<a href="#section-9.1" class="section-number selfRef">9.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+<a href="#section-10.1" class="section-number selfRef">10.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
         </h3>
 <dl class="references">
 <dt id="RFC2119">[RFC2119]</dt>
@@ -1465,9 +1482,9 @@ mask = Stream(5, hp_key, ZeroPad(ciphertext[0..16], nonce_len))
 </section>
 </div>
 <div id="sec-informative-references">
-<section id="section-9.2">
+<section id="section-10.2">
         <h3 id="name-informative-references">
-<a href="#section-9.2" class="section-number selfRef">9.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+<a href="#section-10.2" class="section-number selfRef">10.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
 <dt id="AEGIS">[AEGIS]</dt>
@@ -1669,8 +1686,8 @@ mask:                 6e3a2ce297
 </div>
 <div id="authors-addresses">
 <section id="appendix-C">
-      <h2 id="name-authors-address">
-<a href="#name-authors-address" class="section-name selfRef">Author's Address</a>
+      <h2 id="name-authors-addresses">
+<a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
       </h2>
 <address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">Frank Denis</span></div>
@@ -1678,6 +1695,14 @@ mask:                 6e3a2ce297
 <div class="email">
 <span>Email:</span>
 <a href="mailto:fde@00f.net" class="email">fde@00f.net</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Samuel Lucas</span></div>
+<div dir="auto" class="left"><span class="org">Individual Contributor</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:samuel-lucas6@pm.me" class="email">samuel-lucas6@pm.me</a>
 </div>
 </address>
 </section>
