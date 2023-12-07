@@ -39,11 +39,6 @@ author:
 normative:
 
 informative:
-  AEGIS:
-    title: The AEGIS Family of Authenticated Encryption Algorithms
-    target: https://datatracker.ietf.org/doc/draft-irtf-cfrg-aegis-aead/
-    date: 2023
-
   M23:
     title: Hidden Stream Ciphers and TMTO Attacks on TLS 1.3, DTLS 1.3, QUIC, and Signal
     rc: Cryptology ePrint Archive, Paper 2023/913
@@ -64,7 +59,7 @@ This documents proposes new cipher suites based on the AEGIS family of authentic
 
 # Introduction and rationale
 
-AEGIS {{AEGIS}} is a family of authenticated encryption algorithms designed for high-performance applications. AEGIS caters to the same hardware class as AES-GCM, distinguishing itself through the following key attributes:
+AEGIS {{?I-D.irtf-cfrg-aegis-aead}} is a family of authenticated encryption algorithms designed for high-performance applications. AEGIS caters to the same hardware class as AES-GCM, distinguishing itself through the following key attributes:
 
 1. Reduced memory requirements: AEGIS eliminates the necessity for a key schedule and precomputation tables, resulting in lower memory demands. This characteristic proves particularly advantageous for servers managing a substantial volume of connections.
 2. Extended usage limits: AEGIS features higher usage limits, mitigating the need for frequent rekeying compared to other available options.
@@ -106,7 +101,7 @@ With the inclusion of these new cipher suites, the cryptographic negotiation mec
 
 In DTLS 1.3, encryption of record sequence numbers follows the specifications detailed in {{!RFC9147, Section 4.2.3}}.
 
-For AEGIS-based cipher suites, the mask is generated using the AEGIS `Stream` and `ZeroPad` functions defined in {{AEGIS}} with:
+For AEGIS-based cipher suites, the mask is generated using the AEGIS `Stream` and `ZeroPad` functions defined in {{?I-D.irtf-cfrg-aegis-aead}} with:
 
 - a 128-bit tag length
 - `sn_key`, as defined in {{!RFC9147, Section 4.2.3}}
