@@ -82,7 +82,9 @@ Table of Contents
        A.2.2.  With TLS_AEGIS_128L_SHA512
      A.3.  DTLS 1.3 and QUIC Header Protection Mask
        A.3.1.  With TLS_AEGIS_128L_SHA256
-       A.3.2.  With TLS_AEGIS_256_SHA512
+       A.3.2.  With TLS_AEGIS_128X2_SHA256
+       A.3.3.  With TLS_AEGIS_256_SHA512
+       A.3.4.  With TLS_AEGIS_256X2_SHA512
    Acknowledgments
    Authors' Addresses
 
@@ -393,7 +395,17 @@ A.3.1.  With TLS_AEGIS_128L_SHA256
 
    mask:                 60ede1c811
 
-A.3.2.  With TLS_AEGIS_256_SHA512
+A.3.2.  With TLS_AEGIS_128X2_SHA256
+
+   key:                  000102030405060708090a0b0c0d0e0f
+
+   ciphertext[0..16]:    101112131415161718191a1b1c1d1e1f
+
+   nonce_len:            16
+
+   mask:                 6bf2292472
+
+A.3.3.  With TLS_AEGIS_256_SHA512
 
    key:                  000102030405060708090a0b0c0d0e0f
                          101112131415161718191a1b1c1d1e1f
@@ -403,6 +415,17 @@ A.3.2.  With TLS_AEGIS_256_SHA512
    nonce_len:            32
 
    mask:                 6e3a2ce297
+
+A.3.4.  With TLS_AEGIS_256X2_SHA512
+
+   key:                  000102030405060708090a0b0c0d0e0f
+                         101112131415161718191a1b1c1d1e1f
+
+   ciphertext[0..16]:    202122232425262728292a2b2c2d2e2f
+
+   nonce_len:            32
+
+   mask:                 7a515cfb0c
 
 Acknowledgments
 
