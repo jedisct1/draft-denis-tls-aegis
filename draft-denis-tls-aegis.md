@@ -111,7 +111,7 @@ For AEGIS-based cipher suites, the mask is generated using the AEGIS `Stream` an
 A 48-bit mask is computed as follows:
 
 ~~~
-mask = Stream(5, sn_key, ZeroPad(ciphertext[0..16], nonce_len))
+mask = Stream(48, sn_key, ZeroPad(ciphertext[0..16], nonce_len))
 ~~~
 
 # QUIC Header Protection
@@ -128,7 +128,7 @@ For AEGIS-based cipher suites, the mask is generated following the same procedur
 A 48-bit mask is computed as follows:
 
 ~~~
-mask = Stream(5, hp_key, ZeroPad(ciphertext[0..16], nonce_len))
+mask = Stream(48, hp_key, ZeroPad(ciphertext[0..16], nonce_len))
 ~~~
 
 # Operational Considerations
