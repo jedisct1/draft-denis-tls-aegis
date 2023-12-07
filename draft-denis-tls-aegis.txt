@@ -4,8 +4,8 @@
 
 Transport Layer Security                                        F. Denis
 Internet-Draft                                               Fastly Inc.
-Intended status: Informational                           6 December 2023
-Expires: 8 June 2024
+Intended status: Informational                           7 December 2023
+Expires: 9 June 2024
 
 
         AEGIS-based Ciphersuites for TLS 1.3, DTLS 1.3 and QUIC
@@ -13,9 +13,10 @@ Expires: 8 June 2024
 
 Abstract
 
-   This documents proposes new ciphersuites based on the AEGIS family of
-   authenticated encryption algorithms for integration into the TLS 1.3
-   [RFC8446], DTLS 1.3, [RFC9147] and QUIC [RFC9000] protocols.
+   This documents proposes new ciphersuites based on the AEGIS [AEGIS]
+   family of authenticated encryption algorithms for integration into
+   the TLS 1.3 [RFC8446], DTLS 1.3, [RFC9147] and QUIC [RFC9000]
+   protocols.
 
 About This Document
 
@@ -42,7 +43,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 June 2024.
+   This Internet-Draft will expire on 9 June 2024.
 
 Copyright Notice
 
@@ -68,7 +69,9 @@ Table of Contents
    6.  Operational Considerations
    7.  Security Considerations
    8.  IANA Considerations
-   9.  Normative References
+   9.  References
+     9.1.  Normative References
+     9.2.  Informative References
    Appendix A.  Examples
      A.1.  TLS 1.3 Handshake
        A.1.1.  With TLS_AEGIS_128L_SHA256
@@ -84,10 +87,10 @@ Table of Contents
 
 1.  Introduction and rationale
 
-   AEGIS is a family of authenticated encryption algorithms designed for
-   high-performance applications.  AEGIS caters to the same hardware
-   class as AES-GCM, distinguishing itself through the following key
-   attributes:
+   AEGIS [AEGIS] is a family of authenticated encryption algorithms
+   designed for high-performance applications.  AEGIS caters to the same
+   hardware class as AES-GCM, distinguishing itself through the
+   following key attributes:
 
    1.  Reduced memory requirements: AEGIS eliminates the necessity for a
        key schedule and precomputation tables, resulting in lower memory
@@ -165,8 +168,7 @@ Table of Contents
    specifications detailed in [RFC9147], Section 4.2.3.
 
    For AEGIS-based ciphersuites, the mask is generated using the AEGIS
-   Stream and ZeroPad functions defined in (TODO: link to the AEGIS RFC
-   and section) with:
+   Stream and ZeroPad functions defined in [AEGIS] with:
 
    *  a 128-bit tag length
 
@@ -239,7 +241,9 @@ Table of Contents
 
                         Table 2: IANA identifiers
 
-9.  Normative References
+9.  References
+
+9.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -267,6 +271,12 @@ Table of Contents
               Datagram Transport Layer Security (DTLS) Protocol Version
               1.3", RFC 9147, DOI 10.17487/RFC9147, April 2022,
               <https://www.rfc-editor.org/rfc/rfc9147>.
+
+9.2.  Informative References
+
+   [AEGIS]    "The AEGIS Family of Authenticated Encryption Algorithms",
+              2023, <https://datatracker.ietf.org/doc/draft-irtf-cfrg-
+              aegis-aead/>.
 
 Appendix A.  Examples
 
