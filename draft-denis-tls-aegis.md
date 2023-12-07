@@ -231,30 +231,6 @@ server_handshake_iv:  8f883c1bb0eae38960efdb717f6b19cf
                       c929d565ad596f1f4b3daab498a7fc29
 ~~~
 
-## TLS 1.3 Nonces for Record Encryption
-
-### With TLS_AEGIS_128L_SHA256
-
-~~~
-handshake_iv:         cc421814028367299508e120a7cb3ad2
-
-sequence_number:      0102030405
-
-nonce:                cc421814028367299508e121a5c83ed7
-~~~
-
-### With TLS_AEGIS_128L_SHA512
-
-~~~
-handshake_iv:         724d41a7ccadc6435d4305dd6756bd01
-                      5e26dd0544a19733a2c08430f128b218
-
-sequence_number:      0102030405
-
-nonce:                724d41a7ccadc6435d4305dd6756bd01
-                      5e26dd0544a19733a2c08431f32bb61d
-~~~
-
 ## DTLS 1.3 and QUIC Header Protection Mask
 
 ### With TLS_AEGIS_128L_SHA256
