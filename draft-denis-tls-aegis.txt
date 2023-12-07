@@ -13,10 +13,9 @@ Expires: 9 June 2024
 
 Abstract
 
-   This documents proposes new ciphersuites based on the AEGIS [AEGIS]
-   family of authenticated encryption algorithms for integration into
-   the TLS 1.3 [RFC8446], DTLS 1.3, [RFC9147] and QUIC [RFC9000]
-   protocols.
+   This documents proposes new ciphersuites based on the AEGIS family of
+   authenticated encryption algorithms for integration into the TLS 1.3,
+   DTLS 1.3, and QUIC protocols.
 
 About This Document
 
