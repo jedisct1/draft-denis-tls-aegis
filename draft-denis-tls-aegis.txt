@@ -189,7 +189,7 @@ Table of Contents
 
    A 48-bit mask is computed as follows:
 
-   mask = Stream(5, sn_key, ZeroPad(ciphertext[0..16], nonce_len))
+   mask = Stream(48, sn_key, ZeroPad(ciphertext[0..16], nonce_len))
 
 5.  QUIC Header Protection
 
@@ -211,7 +211,7 @@ Table of Contents
 
    A 48-bit mask is computed as follows:
 
-   mask = Stream(5, hp_key, ZeroPad(ciphertext[0..16], nonce_len))
+   mask = Stream(48, hp_key, ZeroPad(ciphertext[0..16], nonce_len))
 
 6.  Operational Considerations
 

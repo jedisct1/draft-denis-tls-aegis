@@ -1339,7 +1339,7 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 <p id="section-4-4">A 48-bit mask is computed as follows:<a href="#section-4-4" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-4-5">
 <pre>
-mask = Stream(5, sn_key, ZeroPad(ciphertext[0..16], nonce_len))
+mask = Stream(48, sn_key, ZeroPad(ciphertext[0..16], nonce_len))
 </pre><a href="#section-4-5" class="pilcrow">¶</a>
 </div>
 </section>
@@ -1368,7 +1368,7 @@ mask = Stream(5, sn_key, ZeroPad(ciphertext[0..16], nonce_len))
 <p id="section-5-4">A 48-bit mask is computed as follows:<a href="#section-5-4" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-5-5">
 <pre>
-mask = Stream(5, hp_key, ZeroPad(ciphertext[0..16], nonce_len))
+mask = Stream(48, hp_key, ZeroPad(ciphertext[0..16], nonce_len))
 </pre><a href="#section-5-5" class="pilcrow">¶</a>
 </div>
 </section>
