@@ -106,7 +106,7 @@ For AEGIS-based cipher suites, the mask is generated using the AEGIS `Stream` an
 - a 128-bit tag length
 - `sn_key`, as defined in {{!RFC9147, Section 4.2.3}}
 - `ciphertext[0..16]`: the first 16 bytes of the DTLS ciphertext
-- `nonce_len`: the AEGIS nonce length, either 16 or 32, depending on the chosen AEAD algorithm.
+- `nonce_len`: the AEGIS nonce length, either 128 or 256 bits, depending on the chosen AEAD algorithm.
 
 A 48-bit mask is computed as follows:
 
@@ -123,7 +123,7 @@ For AEGIS-based cipher suites, the mask is generated following the same procedur
 - a 128-bit tag length
 - `hp_key`, as defined in {{!RFC9001, Section 5.4}}
 - `ciphertext[0..16]`: the first 16 bytes of the ciphertext
-- `nonce_len`: the AEGIS nonce length, either 16 or 32, depending on the selected AEAD algorithm.
+- `nonce_len`: the AEGIS nonce length, either 128 or 256 bits, depending on the selected AEAD algorithm.
 
 A 48-bit mask is computed as follows:
 
