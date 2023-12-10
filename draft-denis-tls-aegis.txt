@@ -5,8 +5,8 @@
 Transport Layer Security                                        F. Denis
 Internet-Draft                                               Fastly Inc.
 Intended status: Informational                                  S. Lucas
-Expires: 11 June 2024                             Individual Contributor
-                                                         9 December 2023
+Expires: 12 June 2024                             Individual Contributor
+                                                        10 December 2023
 
 
         AEGIS-based Cipher Suites for TLS 1.3, DTLS 1.3 and QUIC
@@ -43,7 +43,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 11 June 2024.
+   This Internet-Draft will expire on 12 June 2024.
 
 Copyright Notice
 
@@ -181,8 +181,8 @@ Table of Contents
 
    *  ciphertext[0..16]: the first 16 bytes of the DTLS ciphertext
 
-   *  nonce_len: the AEGIS nonce length, either 16 or 32, depending on
-      the chosen AEAD algorithm.
+   *  nonce_len: the AEGIS nonce length, either 128 or 256 bits,
+      depending on the chosen AEAD algorithm.
 
    A 48-bit mask is computed as follows:
 
@@ -203,8 +203,8 @@ Table of Contents
 
    *  ciphertext[0..16]: the first 16 bytes of the ciphertext
 
-   *  nonce_len: the AEGIS nonce length, either 16 or 32, depending on
-      the selected AEAD algorithm.
+   *  nonce_len: the AEGIS nonce length, either 128 or 256 bits,
+      depending on the selected AEAD algorithm.
 
    A 48-bit mask is computed as follows:
 
@@ -372,7 +372,7 @@ A.2.1.  With TLS_AEGIS_128L_SHA256
 
    ciphertext[0..16]:    101112131415161718191a1b1c1d1e1f
 
-   nonce_len:            16
+   nonce_len:            128 bits
 
    mask:                 60ede1c811
 
@@ -382,7 +382,7 @@ A.2.2.  With TLS_AEGIS_128X2_SHA256
 
    ciphertext[0..16]:    101112131415161718191a1b1c1d1e1f
 
-   nonce_len:            16
+   nonce_len:            128 bits
 
    mask:                 6bf2292472
 
@@ -393,7 +393,7 @@ A.2.3.  With TLS_AEGIS_256_SHA512
 
    ciphertext[0..16]:    202122232425262728292a2b2c2d2e2f
 
-   nonce_len:            32
+   nonce_len:            256 bits
 
    mask:                 6e3a2ce297
 
@@ -404,7 +404,7 @@ A.2.4.  With TLS_AEGIS_256X2_SHA512
 
    ciphertext[0..16]:    202122232425262728292a2b2c2d2e2f
 
-   nonce_len:            32
+   nonce_len:            256 bits
 
    mask:                 7a515cfb0c
 
