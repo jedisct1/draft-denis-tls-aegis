@@ -240,7 +240,7 @@ key:                  000102030405060708090a0b0c0d0e0f
 
 ciphertext[0..16]:    101112131415161718191a1b1c1d1e1f
 
-nonce_len:            16
+nonce_len:            128 bits
 
 mask:                 60ede1c811
 ~~~
@@ -252,7 +252,7 @@ key:                  000102030405060708090a0b0c0d0e0f
 
 ciphertext[0..16]:    101112131415161718191a1b1c1d1e1f
 
-nonce_len:            16
+nonce_len:            128 bits
 
 mask:                 6bf2292472
 ~~~
@@ -265,7 +265,7 @@ key:                  000102030405060708090a0b0c0d0e0f
 
 ciphertext[0..16]:    202122232425262728292a2b2c2d2e2f
 
-nonce_len:            32
+nonce_len:            256 bits
 
 mask:                 6e3a2ce297
 ~~~
@@ -278,7 +278,7 @@ key:                  000102030405060708090a0b0c0d0e0f
 
 ciphertext[0..16]:    202122232425262728292a2b2c2d2e2f
 
-nonce_len:            32
+nonce_len:            256 bits
 
 mask:                 7a515cfb0c
 ~~~
