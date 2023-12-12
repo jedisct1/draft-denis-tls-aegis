@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-12-10T00:54:46.876749+00:00",
+  "timestamp": "2023-12-12T00:51:52.527746+00:00",
   "repo": "jedisct1/draft-denis-tls-aegis",
   "labels": [
     {
@@ -133,15 +133,15 @@
       "id": "I_kwDOK2ifJ855OVRd",
       "title": "Should nonce_len be in bits?",
       "url": "https://github.com/jedisct1/draft-denis-tls-aegis/issues/6",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "samuel-lucas6",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "In Sections 4/5, should `nonce_len` be in bits since the `ZeroPad()` function takes the second parameter in bits?\r\n\r\n> nonce_len: the AEGIS nonce length, either 16 or 32, depending on the chosen AEAD algorithm.\r\n> \r\n> A 48-bit mask is computed as follows:\r\n> \r\n> mask = Stream(48, sn_key, ZeroPad(ciphertext[0..16], nonce_len))\r\n\r\nFrom the AEGIS draft:\r\n\r\n> ZeroPad(x, n): padding operation. Trailing zeros are concatenated to x until the total length is a multiple of n bits.",
       "createdAt": "2023-12-09T11:06:26Z",
-      "updatedAt": "2023-12-09T19:44:33Z",
-      "closedAt": null,
+      "updatedAt": "2023-12-10T14:50:55Z",
+      "closedAt": "2023-12-10T14:50:55Z",
       "comments": [
         {
           "author": "jedisct1",
@@ -243,26 +243,50 @@
       "id": "PR_kwDOK2ifJ85hmGHS",
       "title": "nonce_len should be in bits",
       "url": "https://github.com/jedisct1/draft-denis-tls-aegis/pull/7",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "jedisct1",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "And the unit was explicitly added for more clarity.\r\n\r\nFixes #6",
       "createdAt": "2023-12-09T19:46:13Z",
-      "updatedAt": "2023-12-09T19:46:18Z",
+      "updatedAt": "2023-12-10T14:51:13Z",
       "baseRepository": "jedisct1/draft-denis-tls-aegis",
       "baseRefName": "main",
       "baseRefOid": "f2221d09a150f75c5f256d25a77d6c81ef364c55",
       "headRepository": "jedisct1/draft-denis-tls-aegis",
       "headRefName": "nonce_len",
-      "headRefOid": "bf99944ca5bab65cd83eb27ab5d2e9c427e828d6",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
-      "comments": [],
-      "reviews": []
+      "headRefOid": "be72a391b513872c7c89968159698e416dfb6fc2",
+      "closedAt": "2023-12-10T14:50:55Z",
+      "mergedAt": "2023-12-10T14:50:55Z",
+      "mergedBy": "jedisct1",
+      "mergeCommit": {
+        "oid": "be72a391b513872c7c89968159698e416dfb6fc2"
+      },
+      "comments": [
+        {
+          "author": "jedisct1",
+          "authorAssociation": "OWNER",
+          "body": "Ah, good catch!",
+          "createdAt": "2023-12-10T14:51:05Z",
+          "updatedAt": "2023-12-10T14:51:05Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOK2ifJ85pvReG",
+          "commit": {
+            "abbreviatedOid": "bf99944"
+          },
+          "author": "samuel-lucas6",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "Should the `nonce_len` in Section A.2 be updated to bits too? Otherwise, looks good.",
+          "createdAt": "2023-12-10T09:44:54Z",
+          "updatedAt": "2023-12-10T09:44:54Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
