@@ -1,0 +1,292 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2024-07-09T00:55:43.924719+00:00",
+  "repo": "jedisct1/draft-denis-tls-aegis",
+  "labels": [
+    {
+      "name": "bug",
+      "description": "Something isn't working",
+      "color": "d73a4a"
+    },
+    {
+      "name": "documentation",
+      "description": "Improvements or additions to documentation",
+      "color": "0075ca"
+    },
+    {
+      "name": "duplicate",
+      "description": "This issue or pull request already exists",
+      "color": "cfd3d7"
+    },
+    {
+      "name": "enhancement",
+      "description": "New feature or request",
+      "color": "a2eeef"
+    },
+    {
+      "name": "good first issue",
+      "description": "Good for newcomers",
+      "color": "7057ff"
+    },
+    {
+      "name": "help wanted",
+      "description": "Extra attention is needed",
+      "color": "008672"
+    },
+    {
+      "name": "invalid",
+      "description": "This doesn't seem right",
+      "color": "e4e669"
+    },
+    {
+      "name": "question",
+      "description": "Further information is requested",
+      "color": "d876e3"
+    },
+    {
+      "name": "wontfix",
+      "description": "This will not be worked on",
+      "color": "ffffff"
+    }
+  ],
+  "issues": [
+    {
+      "number": 1,
+      "id": "I_kwDOK2ifJ8548AC_",
+      "title": "Update existing registrations?",
+      "url": "https://github.com/jedisct1/draft-denis-tls-aegis/issues/1",
+      "state": "OPEN",
+      "author": "emanjon",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "If the AEGIS RFC removed the IANA registrations for \r\n\r\nTLS_AEGIS_256_SHA512\r\nTLS_AEGIS_128L_SHA256\r\n\r\nit might be a good idea to uodate the reference in IANA to point to this document.\r\n\r\n",
+      "createdAt": "2023-12-06T16:57:54Z",
+      "updatedAt": "2023-12-07T00:18:42Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "jedisct1",
+          "authorAssociation": "OWNER",
+          "body": "Hi John,\r\n\r\nIANA didn't remove the code points; they point to the previous revision of the AEGIS draft.\r\n\r\nWhat we can do is finish a first version of this document, propose it to the TLS WG, and if it is accepted, ask IANA to update them.",
+          "createdAt": "2023-12-06T18:03:52Z",
+          "updatedAt": "2023-12-06T18:03:52Z"
+        },
+        {
+          "author": "jedisct1",
+          "authorAssociation": "OWNER",
+          "body": "A first version of the document can be seen here: https://jedisct1.github.io/draft-denis-tls-aegis/draft-denis-tls-aegis.html\r\n\r\nYour input is more that welcome.",
+          "createdAt": "2023-12-07T00:18:41Z",
+          "updatedAt": "2023-12-07T00:18:41Z"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "id": "I_kwDOK2ifJ855BAfD",
+      "title": "Are examples useful?",
+      "url": "https://github.com/jedisct1/draft-denis-tls-aegis/issues/2",
+      "state": "CLOSED",
+      "author": "jedisct1",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Adding AEGIS to existing TLS libraries shouldn't be difficult.\r\n\r\nStill, there are differences with other cipher suites:\r\n\r\n- The nonce sizes (128 and 256 bits), whereas other ciphers use a 96 bit nonce, and implementations may be designed around that assumption.\r\n- Usage of SHA512 for key derivation, so secrets are bigger too.\r\n\r\nMaking these differences obvious was one of the goals of having these examples.\r\n\r\nBut maybe they are not necessary, especially the ones about nonce computation.",
+      "createdAt": "2023-12-07T09:39:57Z",
+      "updatedAt": "2023-12-09T19:43:52Z",
+      "closedAt": "2023-12-09T19:43:52Z",
+      "comments": [
+        {
+          "author": "samuel-lucas6",
+          "authorAssociation": "COLLABORATOR",
+          "body": "They probably aren't necessary, but I think we can keep them in unless we're told to remove them.",
+          "createdAt": "2023-12-09T11:02:18Z",
+          "updatedAt": "2023-12-09T11:02:18Z"
+        },
+        {
+          "author": "jedisct1",
+          "authorAssociation": "OWNER",
+          "body": "Sounds good, especially now that the nonce derivation examples are gone.",
+          "createdAt": "2023-12-09T19:43:50Z",
+          "updatedAt": "2023-12-09T19:43:50Z"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "id": "I_kwDOK2ifJ855DFLe",
+      "title": "Document when to use the different variants of the given security level",
+      "url": "https://github.com/jedisct1/draft-denis-tls-aegis/issues/3",
+      "state": "OPEN",
+      "author": "jedisct1",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "This is addressed in the original AEGIS draft, but it could be good to have this in the operational considerations section of that draft as well.\r\n\r\nEssentially: security properties are the same and implementations should pick the fastest option for the hardware they run on.",
+      "createdAt": "2023-12-07T14:15:29Z",
+      "updatedAt": "2023-12-07T14:15:29Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 6,
+      "id": "I_kwDOK2ifJ855OVRd",
+      "title": "Should nonce_len be in bits?",
+      "url": "https://github.com/jedisct1/draft-denis-tls-aegis/issues/6",
+      "state": "CLOSED",
+      "author": "samuel-lucas6",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "In Sections 4/5, should `nonce_len` be in bits since the `ZeroPad()` function takes the second parameter in bits?\r\n\r\n> nonce_len: the AEGIS nonce length, either 16 or 32, depending on the chosen AEAD algorithm.\r\n> \r\n> A 48-bit mask is computed as follows:\r\n> \r\n> mask = Stream(48, sn_key, ZeroPad(ciphertext[0..16], nonce_len))\r\n\r\nFrom the AEGIS draft:\r\n\r\n> ZeroPad(x, n): padding operation. Trailing zeros are concatenated to x until the total length is a multiple of n bits.",
+      "createdAt": "2023-12-09T11:06:26Z",
+      "updatedAt": "2023-12-10T14:50:55Z",
+      "closedAt": "2023-12-10T14:50:55Z",
+      "comments": [
+        {
+          "author": "jedisct1",
+          "authorAssociation": "OWNER",
+          "body": "Good catch! Yes, having them in bits totally makes sense.\r\n",
+          "createdAt": "2023-12-09T19:44:32Z",
+          "updatedAt": "2023-12-09T19:44:32Z"
+        }
+      ]
+    }
+  ],
+  "pulls": [
+    {
+      "number": 4,
+      "id": "PR_kwDOK2ifJ85hdu5H",
+      "title": "Use bits, not bytes for the length in Stream() function",
+      "url": "https://github.com/jedisct1/draft-denis-tls-aegis/pull/4",
+      "state": "MERGED",
+      "author": "jedisct1",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "This also improves clarity and consistency, as the mask is previously defined as \"a 48-bit mask\".",
+      "createdAt": "2023-12-07T21:08:59Z",
+      "updatedAt": "2023-12-07T22:33:55Z",
+      "baseRepository": "jedisct1/draft-denis-tls-aegis",
+      "baseRefName": "main",
+      "baseRefOid": "4269dd4edaf37c8905bf8273b0131ead65e72004",
+      "headRepository": "jedisct1/draft-denis-tls-aegis",
+      "headRefName": "bits-stream",
+      "headRefOid": "d6b40ec4b144dab4f64023aee0bec405a566ede6",
+      "closedAt": "2023-12-07T21:37:08Z",
+      "mergedAt": "2023-12-07T21:37:08Z",
+      "mergedBy": "samuel-lucas6",
+      "mergeCommit": {
+        "oid": "4964ad54cfddf8223753df0686939ee60b0d1a3a"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOK2ifJ85pkepL",
+          "commit": {
+            "abbreviatedOid": "d6b40ec"
+          },
+          "author": "samuel-lucas6",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-12-07T21:36:35Z",
+          "updatedAt": "2023-12-07T21:36:35Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "id": "PR_kwDOK2ifJ85heIxk",
+      "title": "Remove the examples on nonce derivation",
+      "url": "https://github.com/jedisct1/draft-denis-tls-aegis/pull/5",
+      "state": "MERGED",
+      "author": "jedisct1",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "This is just an XOR operation.\r\n\r\nThe intent was to highlight the fact that nonce sizes in AEGIS differ from other AEADs, and that the code responsible for nonce derivation was likely affected in implementations.\r\n\r\nBut that can be mentioned in the rest of the document.\r\n\r\nPrevious examples are enough to show that AEGIS uses 128-bit and 256-bit nonces.",
+      "createdAt": "2023-12-07T22:54:04Z",
+      "updatedAt": "2023-12-09T10:48:24Z",
+      "baseRepository": "jedisct1/draft-denis-tls-aegis",
+      "baseRefName": "main",
+      "baseRefOid": "7e9a8986a010609da942c6a488a94cec62cd762f",
+      "headRepository": "jedisct1/draft-denis-tls-aegis",
+      "headRefName": "remove-nonces-section",
+      "headRefOid": "702d2c2fad41849f750b5f04eea1c243eebc1eb2",
+      "closedAt": "2023-12-09T10:48:09Z",
+      "mergedAt": "2023-12-09T10:48:09Z",
+      "mergedBy": "samuel-lucas6",
+      "mergeCommit": {
+        "oid": "f2221d09a150f75c5f256d25a77d6c81ef364c55"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOK2ifJ85puAxe",
+          "commit": {
+            "abbreviatedOid": "702d2c2"
+          },
+          "author": "samuel-lucas6",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2023-12-09T10:47:54Z",
+          "updatedAt": "2023-12-09T10:47:54Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "id": "PR_kwDOK2ifJ85hmGHS",
+      "title": "nonce_len should be in bits",
+      "url": "https://github.com/jedisct1/draft-denis-tls-aegis/pull/7",
+      "state": "MERGED",
+      "author": "jedisct1",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "And the unit was explicitly added for more clarity.\r\n\r\nFixes #6",
+      "createdAt": "2023-12-09T19:46:13Z",
+      "updatedAt": "2023-12-10T14:51:13Z",
+      "baseRepository": "jedisct1/draft-denis-tls-aegis",
+      "baseRefName": "main",
+      "baseRefOid": "f2221d09a150f75c5f256d25a77d6c81ef364c55",
+      "headRepository": "jedisct1/draft-denis-tls-aegis",
+      "headRefName": "nonce_len",
+      "headRefOid": "be72a391b513872c7c89968159698e416dfb6fc2",
+      "closedAt": "2023-12-10T14:50:55Z",
+      "mergedAt": "2023-12-10T14:50:55Z",
+      "mergedBy": "jedisct1",
+      "mergeCommit": {
+        "oid": "be72a391b513872c7c89968159698e416dfb6fc2"
+      },
+      "comments": [
+        {
+          "author": "jedisct1",
+          "authorAssociation": "OWNER",
+          "body": "Ah, good catch!",
+          "createdAt": "2023-12-10T14:51:05Z",
+          "updatedAt": "2023-12-10T14:51:05Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOK2ifJ85pvReG",
+          "commit": {
+            "abbreviatedOid": "bf99944"
+          },
+          "author": "samuel-lucas6",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "Should the `nonce_len` in Section A.2 be updated to bits too? Otherwise, looks good.",
+          "createdAt": "2023-12-10T09:44:54Z",
+          "updatedAt": "2023-12-10T09:44:54Z",
+          "comments": []
+        }
+      ]
+    }
+  ]
+}
