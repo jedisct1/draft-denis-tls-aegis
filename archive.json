@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-08-06T00:56:38.505281+00:00",
+  "timestamp": "2024-08-08T00:57:12.724247+00:00",
   "repo": "jedisct1/draft-denis-tls-aegis",
   "labels": [
     {
@@ -55,15 +55,15 @@
       "id": "I_kwDOK2ifJ8548AC_",
       "title": "Update existing registrations?",
       "url": "https://github.com/jedisct1/draft-denis-tls-aegis/issues/1",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "emanjon",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "If the AEGIS RFC removed the IANA registrations for \r\n\r\nTLS_AEGIS_256_SHA512\r\nTLS_AEGIS_128L_SHA256\r\n\r\nit might be a good idea to uodate the reference in IANA to point to this document.\r\n\r\n",
       "createdAt": "2023-12-06T16:57:54Z",
-      "updatedAt": "2023-12-07T00:18:42Z",
-      "closedAt": null,
+      "updatedAt": "2024-08-07T14:59:00Z",
+      "closedAt": "2024-08-07T14:59:00Z",
       "comments": [
         {
           "author": "jedisct1",
