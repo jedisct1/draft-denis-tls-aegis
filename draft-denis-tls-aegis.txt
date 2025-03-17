@@ -5,8 +5,8 @@
 Transport Layer Security                                        F. Denis
 Internet-Draft                                               Fastly Inc.
 Intended status: Informational                                  S. Lucas
-Expires: 11 April 2025                            Individual Contributor
-                                                          8 October 2024
+Expires: 18 September 2025                        Individual Contributor
+                                                           17 March 2025
 
 
         AEGIS-based Cipher Suites for TLS 1.3, DTLS 1.3 and QUIC
@@ -43,11 +43,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 11 April 2025.
+   This Internet-Draft will expire on 18 September 2025.
 
 Copyright Notice
 
-   Copyright (c) 2024 IETF Trust and the persons identified as the
+   Copyright (c) 2025 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -289,9 +289,9 @@ Table of Contents
    [I-D.irtf-cfrg-aegis-aead]
               Denis, F. and S. Lucas, "The AEGIS Family of Authenticated
               Encryption Algorithms", Work in Progress, Internet-Draft,
-              draft-irtf-cfrg-aegis-aead-12, 23 September 2024,
+              draft-irtf-cfrg-aegis-aead-16, 17 February 2025,
               <https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-
-              aegis-aead-12>.
+              aegis-aead-16>.
 
    [M23]      Mattsson, J. P., "Hidden Stream Ciphers and TMTO Attacks
               on TLS 1.3, DTLS 1.3, QUIC, and Signal", Cryptology ePrint
