@@ -141,7 +141,7 @@ On devices equipped with secure hardware AES acceleration, implementations SHOUL
 
 *This note is to be removed before publishing as an RFC.*
 
-A list of early implementations can be found at [](https://github.com/jedisct1/draft-denis-tls-aead).
+A list of early implementations can be found at [](https://github.com/jedisct1/draft-denis-tls-aegis).
 
 # Security Considerations
 
