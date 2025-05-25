@@ -133,7 +133,7 @@ mask = Stream(48, hp_key, ZeroPad(ciphertext[0..16], nonce_len))
 
 # Operational Considerations
 
-On devices lacking hardware AES acceleration or protection against side-channel attacks, cipher suites dependent on the AES round function SHOULD NOT be prioritized. This recommendation encompasses the cipher suites outlined in this document
+On devices lacking hardware AES acceleration or protection against side-channel attacks, cipher suites dependent on the AES round function SHOULD NOT be prioritized. This recommendation encompasses the cipher suites outlined in this document.
 
 On devices equipped with secure hardware AES acceleration, implementations SHOULD prioritize AEGIS-based cipher suites over AES-GCM ones of equivalent security levels.
 
