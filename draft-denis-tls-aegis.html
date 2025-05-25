@@ -1386,7 +1386,7 @@ mask = Stream(48, hp_key, ZeroPad(ciphertext[0..16], nonce_len))
       <h2 id="name-operational-considerations">
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-operational-considerations" class="section-name selfRef">Operational Considerations</a>
       </h2>
-<p id="section-6-1">On devices lacking hardware AES acceleration or protection against side-channel attacks, cipher suites dependent on the AES round function <span class="bcp14">SHOULD NOT</span> be prioritized. This recommendation encompasses the cipher suites outlined in this document<a href="#section-6-1" class="pilcrow">¶</a></p>
+<p id="section-6-1">On devices lacking hardware AES acceleration or protection against side-channel attacks, cipher suites dependent on the AES round function <span class="bcp14">SHOULD NOT</span> be prioritized. This recommendation encompasses the cipher suites outlined in this document.<a href="#section-6-1" class="pilcrow">¶</a></p>
 <p id="section-6-2">On devices equipped with secure hardware AES acceleration, implementations <span class="bcp14">SHOULD</span> prioritize AEGIS-based cipher suites over AES-GCM ones of equivalent security levels.<a href="#section-6-2" class="pilcrow">¶</a></p>
 </section>
 </div>
