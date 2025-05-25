@@ -154,8 +154,8 @@ IANA is requested to register the following identifiers in the TLS Cipher Suite 
 | Description              | DTLS-OK | Recommended |
 | :----------------------- | :-----: | :---------: |
 | `TLS_AEGIS_128L_SHA256`  |    Y    |      N      |
-| `TLS_AEGIS_128X2_SHA512` |    Y    |      N      |
-| `TLS_AEGIS_256_SHA256`   |    Y    |      N      |
+| `TLS_AEGIS_128X2_SHA256` |    Y    |      N      |
+| `TLS_AEGIS_256_SHA512`   |    Y    |      N      |
 | `TLS_AEGIS_256X2_SHA512` |    Y    |      N      |
 {: title="Requested IANA identifiers"}
 
