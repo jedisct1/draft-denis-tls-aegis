@@ -226,7 +226,7 @@ Table of Contents
    _This note is to be removed before publishing as an RFC._
 
    A list of early implementations can be found at
-   https://github.com/jedisct1/draft-denis-tls-aead.
+   https://github.com/jedisct1/draft-denis-tls-aegis.
 
 8.  Security Considerations
 
