@@ -59,13 +59,13 @@ This document proposes new cipher suites based on the AEGIS family of authentica
 
 # Introduction and rationale
 
-AEGIS {{?I-D.irtf-cfrg-aegis-aead}} is a family of authenticated encryption algorithms designed for high-performance applications. AEGIS caters to the same hardware class as AES-GCM, distinguishing itself through the following key attributes:
+AEGIS {{?I-D.irtf-cfrg-aegis-aead}} is a family of authenticated encryption algorithms designed for high-performance applications. AEGIS targets the same hardware class as AES-GCM, distinguishing itself through the following key attributes:
 
-1. Reduced memory requirements: AEGIS eliminates the necessity for a key schedule and precomputation tables, resulting in lower memory demands. This characteristic proves particularly advantageous for servers managing a substantial volume of connections.
-2. Extended usage limits: AEGIS features higher usage limits, mitigating the need for frequent rekeying compared to other available options.
-3. Enhanced overall performance: AEGIS is very efficient on CPUs supporting AES-specific instructions.
+1. Reduced memory requirements: AEGIS eliminates the need for a key schedule and precomputation tables, resulting in lower memory demands. This characteristic is particularly advantageous for servers managing a large number of connections.
+2. Extended usage limits: AEGIS features higher usage limits, reducing the need for frequent rekeying compared to other available options.
+3. Enhanced overall performance: AEGIS is highly efficient on CPUs supporting AES-specific instructions.
 
-AEGIS ciphers seamlessly integrate into established protocols like TLS 1.3 by adhering to the same interface standards as existing algorithms.
+AEGIS ciphers integrate seamlessly into established protocols like TLS 1.3 by adhering to the same interface standards as existing algorithms.
 
 This document introduces new cipher suites based on the AEGIS algorithms and outlines the procedures for their incorporation into the TLS 1.3 {{!RFC8446}}, DTLS 1.3 {{!RFC9147}}, and QUIC {{!RFC9000}} protocols.
 
@@ -77,11 +77,11 @@ This document introduces new cipher suites based on the AEGIS algorithms and out
 
 The TLS 1.3 protocol includes a set of mandatory cipher suites listed in {{!RFC8446, Section 9.1}}.
 
-Each cipher suite denotes the Authenticated Encryption with Associated Data (AEAD) algorithm for record protection, along with the designated hash algorithm for use with the HMAC-based Key Derivation Function (HKDF).
+Each cipher suite specifies the Authenticated Encryption with Associated Data (AEAD) algorithm for record protection, along with the hash algorithm for use with the HMAC-based Key Derivation Function (HKDF).
 
 The cipher suites and cryptographic negotiation mechanisms established in TLS 1.3 are reused by the DTLS 1.3 and QUIC protocols.
 
-To accommodate AEGIS-based encryption algorithms, this document introduces additional cipher suites to those specified in {{!RFC8446, Section 9.1}}:
+This document introduces additional cipher suites to accommodate AEGIS-based encryption algorithms:
 
 | Cipher Suite Name        | AEAD Algorithm | Hash Algorithm | Confidentiality Level |
 | ------------------------ | -------------- | -------------- | --------------------- |
@@ -91,22 +91,22 @@ To accommodate AEGIS-based encryption algorithms, this document introduces addit
 | `TLS_AEGIS_256X2_SHA512` | AEGIS-256X2    | SHA512         | 256 bits              |
 {: title="Proposed AEGIS-based cipher suites"}
 
-The rationale behind recommending the SHA512 hash function for variants employing a 256-bit key is based on the findings presented in {{M23}}.
+The rationale for recommending the SHA512 hash function for variants employing a 256-bit key is based on the findings presented in {{M23}}.
 
-AEGIS algorithms support both 128-bit and 256-bit authentication tags. For all the cipher suites referenced herein, these algorithms MUST be utilized with a 128-bit authentication tag.
+AEGIS algorithms support both 128-bit and 256-bit authentication tags. For all the cipher suites specified herein, these algorithms MUST be used with a 128-bit authentication tag.
 
 With the inclusion of these new cipher suites, the cryptographic negotiation mechanism in TLS 1.3, as outlined in {{!RFC8446, Section 4.1.1}}, remains unchanged, as does the record payload protection mechanism specified in {{!RFC8446, Section 5.2}}.
 
 # DTLS 1.3 Record Number Encryption
 
-In DTLS 1.3, encryption of record sequence numbers follows the specifications detailed in {{!RFC9147, Section 4.2.3}}.
+In DTLS 1.3, encryption of record sequence numbers follows the specification detailed in {{!RFC9147, Section 4.2.3}}.
 
 For AEGIS-based cipher suites, the mask is generated using the AEGIS `Stream` and `ZeroPad` functions defined in {{?I-D.irtf-cfrg-aegis-aead}} with:
 
 - a 128-bit tag length
 - `sn_key`, as defined in {{!RFC9147, Section 4.2.3}}
 - `ciphertext[0..16]`: the first 16 bytes of the DTLS ciphertext
-- `nonce_len`: the AEGIS nonce length, either 128 or 256 bits, depending on the chosen AEAD algorithm.
+- `nonce_len`: the AEGIS nonce length, either 128 or 256 bits, depending on the selected AEAD algorithm.
 
 A 48-bit mask is computed as follows:
 
@@ -116,7 +116,7 @@ mask = Stream(48, sn_key, ZeroPad(ciphertext[0..16], nonce_len))
 
 # QUIC Header Protection
 
-In QUIC, specific segments of the QUIC packet headers undergo encryption in accordance with the specifications outlined in {{!RFC9001, Section 5.4}}.
+In QUIC, specific segments of the QUIC packet headers undergo encryption in accordance with the specification outlined in {{!RFC9001, Section 5.4}}.
 
 For AEGIS-based cipher suites, the mask is generated following the same procedure as in DTLS 1.3, utilizing:
 
@@ -133,9 +133,9 @@ mask = Stream(48, hp_key, ZeroPad(ciphertext[0..16], nonce_len))
 
 # Operational Considerations
 
-On devices lacking hardware AES acceleration or protection against side-channel attacks, cipher suites dependent on the AES round function SHOULD NOT be prioritized. This recommendation encompasses the cipher suites outlined in this document.
+On devices lacking hardware AES acceleration or protection against side-channel attacks, cipher suites dependent on the AES round function SHOULD NOT be prioritized. This recommendation includes the cipher suites outlined in this document.
 
-On devices equipped with secure hardware AES acceleration, implementations SHOULD prioritize AEGIS-based cipher suites over AES-GCM ones of equivalent security levels.
+On devices equipped with secure hardware AES acceleration, implementations SHOULD prioritize AEGIS-based cipher suites over AES-GCM cipher suites of equivalent security levels.
 
 # Implementation Status
 
@@ -145,7 +145,7 @@ A list of early implementations can be found at [](https://github.com/jedisct1/d
 
 # Security Considerations
 
-A key update MUST be performed prior to encrypting 2<sup>48</sup> records with the same key. The prescribed mechanism is documented in {{!RFC8446, Section 4.6.3}}.
+A key update MUST be performed before encrypting 2<sup>48</sup> records with the same key. The prescribed mechanism is documented in {{!RFC8446, Section 4.6.3}}.
 
 # IANA Considerations
 
