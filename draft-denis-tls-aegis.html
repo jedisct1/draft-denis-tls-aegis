@@ -10,7 +10,7 @@
 <meta content="
        This document proposes new cipher suites based on the AEGIS family of authenticated encryption algorithms for integration into the TLS 1.3, DTLS 1.3, and QUIC protocols. 
     " name="description">
-<meta content="xml2rfc 3.28.1" name="generator">
+<meta content="xml2rfc 3.29.0" name="generator">
 <meta content="ciphersuite" name="keyword">
 <meta content="aegis" name="keyword">
 <meta content="tls" name="keyword">
@@ -18,18 +18,18 @@
 <meta content="quic" name="keyword">
 <meta content="draft-denis-tls-aegis-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.28.1
-    Python 3.12.10
+  xml2rfc 3.29.0
+    Python 3.12.11
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
     Jinja2 3.1.6
-    lxml 5.3.0
+    lxml 5.3.1
     platformdirs 4.3.8
     pycountry 24.6.1
     PyYAML 6.0.2
-    requests 2.32.3
-    setuptools 70.3.0
+    requests 2.32.4
+    setuptools 80.9.0
     wcwidth 0.2.13
 -->
 <link href="draft-denis-tls-aegis.xml" rel="alternate" type="application/rfc+xml">
@@ -1049,11 +1049,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">draft-denis-tls-aegis-latest</td>
-<td class="right">May 2025</td>
+<td class="right">July 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Denis &amp; Lucas</td>
-<td class="center">Expires 26 November 2025</td>
+<td class="center">Expires 12 January 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1066,12 +1066,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-denis-tls-aegis-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-05-25" class="published">25 May 2025</time>
+<time datetime="2025-07-11" class="published">11 July 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-11-26">26 November 2025</time></dd>
+<dd class="expires"><time datetime="2026-01-12">12 January 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1119,7 +1119,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 26 November 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 12 January 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1234,19 +1234,19 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <h2 id="name-introduction-and-rationale">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction-and-rationale" class="section-name selfRef">Introduction and rationale</a>
       </h2>
-<p id="section-1-1">AEGIS <span>[<a href="#I-D.irtf-cfrg-aegis-aead" class="cite xref">I-D.irtf-cfrg-aegis-aead</a>]</span> is a family of authenticated encryption algorithms designed for high-performance applications. AEGIS caters to the same hardware class as AES-GCM, distinguishing itself through the following key attributes:<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-1">AEGIS <span>[<a href="#I-D.irtf-cfrg-aegis-aead" class="cite xref">I-D.irtf-cfrg-aegis-aead</a>]</span> is a family of authenticated encryption algorithms designed for high-performance applications. AEGIS targets the same hardware class as AES-GCM, distinguishing itself through the following key attributes:<a href="#section-1-1" class="pilcrow">¶</a></p>
 <ol start="1" type="1" class="normal type-1" id="section-1-2">
 <li id="section-1-2.1">
-          <p id="section-1-2.1.1">Reduced memory requirements: AEGIS eliminates the necessity for a key schedule and precomputation tables, resulting in lower memory demands. This characteristic proves particularly advantageous for servers managing a substantial volume of connections.<a href="#section-1-2.1.1" class="pilcrow">¶</a></p>
+          <p id="section-1-2.1.1">Reduced memory requirements: AEGIS eliminates the need for a key schedule and precomputation tables, resulting in lower memory demands. This characteristic is particularly advantageous for servers managing a large number of connections.<a href="#section-1-2.1.1" class="pilcrow">¶</a></p>
 </li>
         <li id="section-1-2.2">
-          <p id="section-1-2.2.1">Extended usage limits: AEGIS features higher usage limits, mitigating the need for frequent rekeying compared to other available options.<a href="#section-1-2.2.1" class="pilcrow">¶</a></p>
+          <p id="section-1-2.2.1">Extended usage limits: AEGIS features higher usage limits, reducing the need for frequent rekeying compared to other available options.<a href="#section-1-2.2.1" class="pilcrow">¶</a></p>
 </li>
         <li id="section-1-2.3">
-          <p id="section-1-2.3.1">Enhanced overall performance: AEGIS is very efficient on CPUs supporting AES-specific instructions.<a href="#section-1-2.3.1" class="pilcrow">¶</a></p>
+          <p id="section-1-2.3.1">Enhanced overall performance: AEGIS is highly efficient on CPUs supporting AES-specific instructions.<a href="#section-1-2.3.1" class="pilcrow">¶</a></p>
 </li>
       </ol>
-<p id="section-1-3">AEGIS ciphers seamlessly integrate into established protocols like TLS 1.3 by adhering to the same interface standards as existing algorithms.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<p id="section-1-3">AEGIS ciphers integrate seamlessly into established protocols like TLS 1.3 by adhering to the same interface standards as existing algorithms.<a href="#section-1-3" class="pilcrow">¶</a></p>
 <p id="section-1-4">This document introduces new cipher suites based on the AEGIS algorithms and outlines the procedures for their incorporation into the TLS 1.3 <span>[<a href="#RFC8446" class="cite xref">RFC8446</a>]</span>, DTLS 1.3 <span>[<a href="#RFC9147" class="cite xref">RFC9147</a>]</span>, and QUIC <span>[<a href="#RFC9000" class="cite xref">RFC9000</a>]</span> protocols.<a href="#section-1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1267,9 +1267,9 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 <a href="#section-3" class="section-number selfRef">3. </a><a href="#name-new-cipher-suites-and-prese" class="section-name selfRef">New Cipher Suites and Preservation of TLS 1.3 Mechanisms</a>
       </h2>
 <p id="section-3-1">The TLS 1.3 protocol includes a set of mandatory cipher suites listed in <span>[<a href="#RFC8446" class="cite xref">RFC8446</a>], <a href="https://rfc-editor.org/rfc/rfc8446#section-9.1" class="relref">Section 9.1</a></span>.<a href="#section-3-1" class="pilcrow">¶</a></p>
-<p id="section-3-2">Each cipher suite denotes the Authenticated Encryption with Associated Data (AEAD) algorithm for record protection, along with the designated hash algorithm for use with the HMAC-based Key Derivation Function (HKDF).<a href="#section-3-2" class="pilcrow">¶</a></p>
+<p id="section-3-2">Each cipher suite specifies the Authenticated Encryption with Associated Data (AEAD) algorithm for record protection, along with the hash algorithm for use with the HMAC-based Key Derivation Function (HKDF).<a href="#section-3-2" class="pilcrow">¶</a></p>
 <p id="section-3-3">The cipher suites and cryptographic negotiation mechanisms established in TLS 1.3 are reused by the DTLS 1.3 and QUIC protocols.<a href="#section-3-3" class="pilcrow">¶</a></p>
-<p id="section-3-4">To accommodate AEGIS-based encryption algorithms, this document introduces additional cipher suites to those specified in <span>[<a href="#RFC8446" class="cite xref">RFC8446</a>], <a href="https://rfc-editor.org/rfc/rfc8446#section-9.1" class="relref">Section 9.1</a></span>:<a href="#section-3-4" class="pilcrow">¶</a></p>
+<p id="section-3-4">This document introduces additional cipher suites to accommodate AEGIS-based encryption algorithms:<a href="#section-3-4" class="pilcrow">¶</a></p>
 <span id="name-proposed-aegis-based-cipher"></span><table class="center" id="table-1">
         <caption>
 <a href="#table-1" class="selfRef">Table 1</a>:
@@ -1318,8 +1318,8 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
           </tr>
         </tbody>
       </table>
-<p id="section-3-6">The rationale behind recommending the SHA512 hash function for variants employing a 256-bit key is based on the findings presented in <span>[<a href="#M23" class="cite xref">M23</a>]</span>.<a href="#section-3-6" class="pilcrow">¶</a></p>
-<p id="section-3-7">AEGIS algorithms support both 128-bit and 256-bit authentication tags. For all the cipher suites referenced herein, these algorithms <span class="bcp14">MUST</span> be utilized with a 128-bit authentication tag.<a href="#section-3-7" class="pilcrow">¶</a></p>
+<p id="section-3-6">The rationale for recommending the SHA512 hash function for variants employing a 256-bit key is based on the findings presented in <span>[<a href="#M23" class="cite xref">M23</a>]</span>.<a href="#section-3-6" class="pilcrow">¶</a></p>
+<p id="section-3-7">AEGIS algorithms support both 128-bit and 256-bit authentication tags. For all the cipher suites specified herein, these algorithms <span class="bcp14">MUST</span> be used with a 128-bit authentication tag.<a href="#section-3-7" class="pilcrow">¶</a></p>
 <p id="section-3-8">With the inclusion of these new cipher suites, the cryptographic negotiation mechanism in TLS 1.3, as outlined in <span>[<a href="#RFC8446" class="cite xref">RFC8446</a>], <a href="https://rfc-editor.org/rfc/rfc8446#section-4.1.1" class="relref">Section 4.1.1</a></span>, remains unchanged, as does the record payload protection mechanism specified in <span>[<a href="#RFC8446" class="cite xref">RFC8446</a>], <a href="https://rfc-editor.org/rfc/rfc8446#section-5.2" class="relref">Section 5.2</a></span>.<a href="#section-3-8" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1328,7 +1328,7 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
       <h2 id="name-dtls-13-record-number-encry">
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-dtls-13-record-number-encry" class="section-name selfRef">DTLS 1.3 Record Number Encryption</a>
       </h2>
-<p id="section-4-1">In DTLS 1.3, encryption of record sequence numbers follows the specifications detailed in <span>[<a href="#RFC9147" class="cite xref">RFC9147</a>], <a href="https://rfc-editor.org/rfc/rfc9147#section-4.2.3" class="relref">Section 4.2.3</a></span>.<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-4-1">In DTLS 1.3, encryption of record sequence numbers follows the specification detailed in <span>[<a href="#RFC9147" class="cite xref">RFC9147</a>], <a href="https://rfc-editor.org/rfc/rfc9147#section-4.2.3" class="relref">Section 4.2.3</a></span>.<a href="#section-4-1" class="pilcrow">¶</a></p>
 <p id="section-4-2">For AEGIS-based cipher suites, the mask is generated using the AEGIS <code>Stream</code> and <code>ZeroPad</code> functions defined in <span>[<a href="#I-D.irtf-cfrg-aegis-aead" class="cite xref">I-D.irtf-cfrg-aegis-aead</a>]</span> with:<a href="#section-4-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4-3.1">
@@ -1341,7 +1341,7 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
           <p id="section-4-3.3.1"><code>ciphertext[0..16]</code>: the first 16 bytes of the DTLS ciphertext<a href="#section-4-3.3.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-4-3.4">
-          <p id="section-4-3.4.1"><code>nonce_len</code>: the AEGIS nonce length, either 128 or 256 bits, depending on the chosen AEAD algorithm.<a href="#section-4-3.4.1" class="pilcrow">¶</a></p>
+          <p id="section-4-3.4.1"><code>nonce_len</code>: the AEGIS nonce length, either 128 or 256 bits, depending on the selected AEAD algorithm.<a href="#section-4-3.4.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <p id="section-4-4">A 48-bit mask is computed as follows:<a href="#section-4-4" class="pilcrow">¶</a></p>
@@ -1357,7 +1357,7 @@ mask = Stream(48, sn_key, ZeroPad(ciphertext[0..16], nonce_len))
       <h2 id="name-quic-header-protection">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-quic-header-protection" class="section-name selfRef">QUIC Header Protection</a>
       </h2>
-<p id="section-5-1">In QUIC, specific segments of the QUIC packet headers undergo encryption in accordance with the specifications outlined in <span>[<a href="#RFC9001" class="cite xref">RFC9001</a>], <a href="https://rfc-editor.org/rfc/rfc9001#section-5.4" class="relref">Section 5.4</a></span>.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-1">In QUIC, specific segments of the QUIC packet headers undergo encryption in accordance with the specification outlined in <span>[<a href="#RFC9001" class="cite xref">RFC9001</a>], <a href="https://rfc-editor.org/rfc/rfc9001#section-5.4" class="relref">Section 5.4</a></span>.<a href="#section-5-1" class="pilcrow">¶</a></p>
 <p id="section-5-2">For AEGIS-based cipher suites, the mask is generated following the same procedure as in DTLS 1.3, utilizing:<a href="#section-5-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-5-3.1">
@@ -1386,8 +1386,8 @@ mask = Stream(48, hp_key, ZeroPad(ciphertext[0..16], nonce_len))
       <h2 id="name-operational-considerations">
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-operational-considerations" class="section-name selfRef">Operational Considerations</a>
       </h2>
-<p id="section-6-1">On devices lacking hardware AES acceleration or protection against side-channel attacks, cipher suites dependent on the AES round function <span class="bcp14">SHOULD NOT</span> be prioritized. This recommendation encompasses the cipher suites outlined in this document.<a href="#section-6-1" class="pilcrow">¶</a></p>
-<p id="section-6-2">On devices equipped with secure hardware AES acceleration, implementations <span class="bcp14">SHOULD</span> prioritize AEGIS-based cipher suites over AES-GCM ones of equivalent security levels.<a href="#section-6-2" class="pilcrow">¶</a></p>
+<p id="section-6-1">On devices lacking hardware AES acceleration or protection against side-channel attacks, cipher suites dependent on the AES round function <span class="bcp14">SHOULD NOT</span> be prioritized. This recommendation includes the cipher suites outlined in this document.<a href="#section-6-1" class="pilcrow">¶</a></p>
+<p id="section-6-2">On devices equipped with secure hardware AES acceleration, implementations <span class="bcp14">SHOULD</span> prioritize AEGIS-based cipher suites over AES-GCM cipher suites of equivalent security levels.<a href="#section-6-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="implementation-status">
@@ -1404,7 +1404,7 @@ mask = Stream(48, hp_key, ZeroPad(ciphertext[0..16], nonce_len))
       <h2 id="name-security-considerations">
 <a href="#section-8" class="section-number selfRef">8. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-8-1">A key update <span class="bcp14">MUST</span> be performed prior to encrypting 2<sup>48</sup> records with the same key. The prescribed mechanism is documented in <span>[<a href="#RFC8446" class="cite xref">RFC8446</a>], <a href="https://rfc-editor.org/rfc/rfc8446#section-4.6.3" class="relref">Section 4.6.3</a></span>.<a href="#section-8-1" class="pilcrow">¶</a></p>
+<p id="section-8-1">A key update <span class="bcp14">MUST</span> be performed before encrypting 2<sup>48</sup> records with the same key. The prescribed mechanism is documented in <span>[<a href="#RFC8446" class="cite xref">RFC8446</a>], <a href="https://rfc-editor.org/rfc/rfc8446#section-4.6.3" class="relref">Section 4.6.3</a></span>.<a href="#section-8-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">
