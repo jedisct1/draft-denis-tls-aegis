@@ -149,13 +149,19 @@ A key update MUST be performed before encrypting 2<sup>48</sup> records with the
 
 # IANA Considerations
 
+IANA has registered the following identifiers in the TLS Cipher Suite Registry:
+
+|   Value   | Description             | DTLS-OK | Recommended |
+| :-------: | :---------------------- | :-----: | :---------: |
+| 0x13,0x06 | `TLS_AEGIS_128L_SHA256` |    Y    |      N      |
+| 0x13,0x07 | `TLS_AEGIS_256_SHA512`  |    Y    |      N      |
+{: title="Assigned IANA identifiers"}
+
 IANA is requested to register the following identifiers in the TLS Cipher Suite Registry:
 
 | Description              | DTLS-OK | Recommended |
 | :----------------------- | :-----: | :---------: |
-| `TLS_AEGIS_128L_SHA256`  |    Y    |      N      |
 | `TLS_AEGIS_128X2_SHA256` |    Y    |      N      |
-| `TLS_AEGIS_256_SHA512`   |    Y    |      N      |
 | `TLS_AEGIS_256X2_SHA512` |    Y    |      N      |
 {: title="Requested IANA identifiers"}
 
