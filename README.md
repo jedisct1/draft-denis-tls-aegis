@@ -14,6 +14,10 @@ This is the working area for the individual Internet-Draft, "AEGIS Ciphersuites 
 - [PicoTLS](https://github.com/h2o/picotls)
 - [Zig TLS client](https://ziglang.org/documentation/master/std/#A;std:crypto.tls.CipherSuite)
 
+# Test URL
+
+[https://aegis.libsodium.org](https://aegis.libsodium.org) is an example URL that only loads using the `TLS_AEGIS_*` cipher suites.
+
 ## Contributing
 
 See the
