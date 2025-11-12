@@ -87,8 +87,10 @@ This document introduces additional cipher suites to accommodate AEGIS-based enc
 | ------------------------ | -------------- | -------------- | --------------------- |
 | `TLS_AEGIS_128L_SHA256`  | AEGIS-128L     | SHA256         | 128 bits              |
 | `TLS_AEGIS_128X2_SHA256` | AEGIS-128X2    | SHA256         | 128 bits              |
+| `TLS_AEGIS_128X4_SHA256` | AEGIS-128X4    | SHA256         | 128 bits              |
 | `TLS_AEGIS_256_SHA512`   | AEGIS-256      | SHA512         | 256 bits              |
 | `TLS_AEGIS_256X2_SHA512` | AEGIS-256X2    | SHA512         | 256 bits              |
+| `TLS_AEGIS_256X4_SHA512` | AEGIS-256X4    | SHA512         | 256 bits              |
 {: title="Proposed AEGIS-based cipher suites"}
 
 The rationale for recommending the SHA512 hash function for variants employing a 256-bit key is based on the findings presented in {{M23}}.
@@ -157,13 +159,17 @@ IANA has registered the following identifiers in the TLS Cipher Suite Registry:
 | 0x13,0x07 | `TLS_AEGIS_256_SHA512`  |    Y    |      N      |
 {: title="Assigned IANA identifiers"}
 
-IANA is requested to register the following identifiers in the TLS Cipher Suite Registry:
+Implementations MAY use the following identifiers reserved for local testing:
 
-| Description              | DTLS-OK | Recommended |
-| :----------------------- | :-----: | :---------: |
-| `TLS_AEGIS_128X2_SHA256` |    Y    |      N      |
-| `TLS_AEGIS_256X2_SHA512` |    Y    |      N      |
-{: title="Requested IANA identifiers"}
+| Test Value | Description              | DTLS-OK | Recommended |
+| :--------: | :----------------------- | :-----: | :---------: |
+|   0xff01   | `TLS_AEGIS_128X2_SHA256` |    Y    |      N      |
+|   0xff02   | `TLS_AEGIS_256X2_SHA512` |    Y    |      N      |
+|   0xff03   | `TLS_AEGIS_128X4_SHA256` |    Y    |      N      |
+|   0xff04   | `TLS_AEGIS_256X4_SHA512` |    Y    |      N      |
+{: title="Additional identifiers"}
+
+IANA is requested to assign the final identifiers.
 
 --- back
 
