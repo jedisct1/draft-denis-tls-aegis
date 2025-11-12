@@ -57,7 +57,7 @@ This document proposes new cipher suites based on the AEGIS family of authentica
 
 --- middle
 
-# Introduction and rationale
+# Introduction and Rationale
 
 AEGIS {{?I-D.irtf-cfrg-aegis-aead}} is a family of authenticated encryption algorithms designed for high-performance applications. AEGIS targets the same hardware class as AES-GCM, distinguishing itself through the following key attributes:
 
