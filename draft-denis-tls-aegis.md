@@ -1,5 +1,5 @@
 ---
-title: "AEGIS-based Cipher Suites for TLS 1.3, DTLS 1.3 and QUIC"
+title: "AEGIS-based Cipher Suites for TLS 1.3, DTLS 1.3, and QUIC"
 abbrev: "draft-denis-tls-aegis-latest"
 category: info
 ipr: trust200902
@@ -118,19 +118,19 @@ mask = Stream(48, sn_key, ZeroPad(ciphertext[0..16], nonce_len))
 
 # QUIC Header Protection
 
-In QUIC, specific segments of the QUIC packet headers undergo encryption in accordance with the specification outlined in {{!RFC9001, Section 5.4}}.
+In QUIC, specific segments of the packet header are protected as specified in {{!RFC9001, Section 5.4}}.
 
-For AEGIS-based cipher suites, the mask is generated following the same procedure as in DTLS 1.3, utilizing:
+For AEGIS-based cipher suites, the mask is generated using the same procedure as in DTLS 1.3, with:
 
 - a 128-bit tag length
 - `hp_key`, as defined in {{!RFC9001, Section 5.4}}
 - `ciphertext[0..16]`: the first 16 bytes of the ciphertext
 - `nonce_len`: the AEGIS nonce length, either 128 or 256 bits, depending on the selected AEAD algorithm.
 
-A 48-bit mask is computed as follows:
+A 40-bit mask is computed as follows:
 
 ~~~
-mask = Stream(48, hp_key, ZeroPad(ciphertext[0..16], nonce_len))
+mask = Stream(40, hp_key, ZeroPad(ciphertext[0..16], nonce_len))
 ~~~
 
 # Operational Considerations
@@ -143,7 +143,7 @@ On devices equipped with secure hardware AES acceleration, implementations SHOUL
 
 *This note is to be removed before publishing as an RFC.*
 
-A list of early implementations can be found at [](https://github.com/jedisct1/draft-denis-tls-aegis).
+A list of early implementations can be found at [the project repository](https://github.com/jedisct1/draft-denis-tls-aegis).
 
 # Security Considerations
 
