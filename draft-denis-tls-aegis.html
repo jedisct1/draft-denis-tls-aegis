@@ -1390,7 +1390,7 @@ mask = Stream(48, sn_key, ZeroPad(ciphertext[0..16], nonce_len))
           <p id="section-5-3.4.1"><code>nonce_len</code>: the AEGIS nonce length, either 128 or 256 bits, depending on the selected AEAD algorithm.<a href="#section-5-3.4.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="section-5-4">A 40-bit mask is computed as follows:<a href="#section-5-4" class="pilcrow">¶</a></p>
+<p id="section-5-4">A 5-byte (40-bit) mask is computed as follows:<a href="#section-5-4" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-5-5">
 <pre>
 mask = Stream(40, hp_key, ZeroPad(ciphertext[0..16], nonce_len))
