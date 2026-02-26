@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta content="Common,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
-<title>AEGIS-based Cipher Suites for TLS 1.3, DTLS 1.3 and QUIC</title>
+<title>AEGIS-based Cipher Suites for TLS 1.3, DTLS 1.3, and QUIC</title>
 <meta content="Frank Denis" name="author">
 <meta content="Samuel Lucas" name="author">
 <meta content="
@@ -22,14 +22,14 @@
     Python 3.12.12
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
-    intervaltree 3.1.0
+    intervaltree 3.2.1
     Jinja2 3.1.6
-    lxml 5.3.1
-    platformdirs 4.5.0
+    lxml 6.0.2
+    platformdirs 4.5.1
     pycountry 24.6.1
-    PyYAML 6.0.2
+    PyYAML 6.0.3
     requests 2.32.5
-    wcwidth 0.2.14
+    wcwidth 0.3.0
 -->
 <link href="draft-denis-tls-aegis.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -170,7 +170,7 @@
   font-weight: 400;
   font-display: swap;
   src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 @font-face {
   font-family: 'Oxygen Mono';
@@ -178,7 +178,8 @@
   font-weight: 400;
   font-display: swap;
   src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 }
 
 @font-face {
@@ -570,6 +571,7 @@ aside, blockquote {
 }
 blockquote {
   margin: 1em 0;
+  border-left: 2px var(--pilcrow-strong) solid;
 }
 cite {
   display: block;
@@ -640,7 +642,7 @@ a.pilcrow {
   }
 }
 @media not print {
-  :hover > a.pilcrow {
+  :hover > a.pilcrow, a.pilcrow:focus {
     opacity: 1;
   }
   a.pilcrow[href]:hover {
@@ -1048,11 +1050,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">draft-denis-tls-aegis-latest</td>
-<td class="right">November 2025</td>
+<td class="right">February 2026</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Denis &amp; Lucas</td>
-<td class="center">Expires 16 May 2026</td>
+<td class="center">Expires 30 August 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1065,12 +1067,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-denis-tls-aegis-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-11-12" class="published">12 November 2025</time>
+<time datetime="2026-02-26" class="published">26 February 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-05-16">16 May 2026</time></dd>
+<dd class="expires"><time datetime="2026-08-30">30 August 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1084,7 +1086,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </dd>
 </dl>
 </div>
-<h1 id="title">AEGIS-based Cipher Suites for TLS 1.3, DTLS 1.3 and QUIC</h1>
+<h1 id="title">AEGIS-based Cipher Suites for TLS 1.3, DTLS 1.3, and QUIC</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
 <p id="section-abstract-1">This document proposes new cipher suites based on the AEGIS family of authenticated encryption algorithms for integration into the TLS 1.3, DTLS 1.3, and QUIC protocols.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
@@ -1118,7 +1120,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 16 May 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 30 August 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1127,7 +1129,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
         </h2>
 <p id="section-boilerplate.2-1">
-            Copyright (c) 2025 IETF Trust and the persons identified as the
+            Copyright (c) 2026 IETF Trust and the persons identified as the
             document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.2-2">
             This document is subject to BCP 78 and the IETF Trust's Legal
@@ -1372,8 +1374,8 @@ mask = Stream(48, sn_key, ZeroPad(ciphertext[0..16], nonce_len))
       <h2 id="name-quic-header-protection">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-quic-header-protection" class="section-name selfRef">QUIC Header Protection</a>
       </h2>
-<p id="section-5-1">In QUIC, specific segments of the QUIC packet headers undergo encryption in accordance with the specification outlined in <span>[<a href="#RFC9001" class="cite xref">RFC9001</a>], <a href="https://rfc-editor.org/rfc/rfc9001#section-5.4" class="relref">Section 5.4</a></span>.<a href="#section-5-1" class="pilcrow">¶</a></p>
-<p id="section-5-2">For AEGIS-based cipher suites, the mask is generated following the same procedure as in DTLS 1.3, utilizing:<a href="#section-5-2" class="pilcrow">¶</a></p>
+<p id="section-5-1">In QUIC, specific segments of the packet header are protected as specified in <span>[<a href="#RFC9001" class="cite xref">RFC9001</a>], <a href="https://rfc-editor.org/rfc/rfc9001#section-5.4" class="relref">Section 5.4</a></span>.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-2">For AEGIS-based cipher suites, the mask is generated using the same procedure as in DTLS 1.3, with:<a href="#section-5-2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-5-3.1">
           <p id="section-5-3.1.1">a 128-bit tag length<a href="#section-5-3.1.1" class="pilcrow">¶</a></p>
@@ -1388,10 +1390,10 @@ mask = Stream(48, sn_key, ZeroPad(ciphertext[0..16], nonce_len))
           <p id="section-5-3.4.1"><code>nonce_len</code>: the AEGIS nonce length, either 128 or 256 bits, depending on the selected AEAD algorithm.<a href="#section-5-3.4.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="section-5-4">A 48-bit mask is computed as follows:<a href="#section-5-4" class="pilcrow">¶</a></p>
+<p id="section-5-4">A 40-bit mask is computed as follows:<a href="#section-5-4" class="pilcrow">¶</a></p>
 <div class="alignLeft art-text artwork" id="section-5-5">
 <pre>
-mask = Stream(48, hp_key, ZeroPad(ciphertext[0..16], nonce_len))
+mask = Stream(40, hp_key, ZeroPad(ciphertext[0..16], nonce_len))
 </pre><a href="#section-5-5" class="pilcrow">¶</a>
 </div>
 </section>
@@ -1411,7 +1413,7 @@ mask = Stream(48, hp_key, ZeroPad(ciphertext[0..16], nonce_len))
 <a href="#section-7" class="section-number selfRef">7. </a><a href="#name-implementation-status" class="section-name selfRef">Implementation Status</a>
       </h2>
 <p id="section-7-1"><em>This note is to be removed before publishing as an RFC.</em><a href="#section-7-1" class="pilcrow">¶</a></p>
-<p id="section-7-2">A list of early implementations can be found at <span><a href="https://github.com/jedisct1/draft-denis-tls-aegis">https://github.com/jedisct1/draft-denis-tls-aegis</a></span>.<a href="#section-7-2" class="pilcrow">¶</a></p>
+<p id="section-7-2">A list of early implementations can be found at <a href="https://github.com/jedisct1/draft-denis-tls-aegis">the project repository</a>.<a href="#section-7-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="security-considerations">

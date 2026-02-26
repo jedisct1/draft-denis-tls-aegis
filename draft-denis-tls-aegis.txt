@@ -5,11 +5,11 @@
 Transport Layer Security                                        F. Denis
 Internet-Draft                                               Fastly Inc.
 Intended status: Informational                                  S. Lucas
-Expires: 16 May 2026                              Individual Contributor
-                                                        12 November 2025
+Expires: 30 August 2026                           Individual Contributor
+                                                        26 February 2026
 
 
-        AEGIS-based Cipher Suites for TLS 1.3, DTLS 1.3 and QUIC
+       AEGIS-based Cipher Suites for TLS 1.3, DTLS 1.3, and QUIC
                       draft-denis-tls-aegis-latest
 
 Abstract
@@ -43,11 +43,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 May 2026.
+   This Internet-Draft will expire on 30 August 2026.
 
 Copyright Notice
 
-   Copyright (c) 2025 IETF Trust and the persons identified as the
+   Copyright (c) 2026 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -192,12 +192,11 @@ Table of Contents
 
 5.  QUIC Header Protection
 
-   In QUIC, specific segments of the QUIC packet headers undergo
-   encryption in accordance with the specification outlined in
-   [RFC9001], Section 5.4.
+   In QUIC, specific segments of the packet header are protected as
+   specified in [RFC9001], Section 5.4.
 
-   For AEGIS-based cipher suites, the mask is generated following the
-   same procedure as in DTLS 1.3, utilizing:
+   For AEGIS-based cipher suites, the mask is generated using the same
+   procedure as in DTLS 1.3, with:
 
    *  a 128-bit tag length
 
@@ -208,9 +207,9 @@ Table of Contents
    *  nonce_len: the AEGIS nonce length, either 128 or 256 bits,
       depending on the selected AEAD algorithm.
 
-   A 48-bit mask is computed as follows:
+   A 40-bit mask is computed as follows:
 
-   mask = Stream(48, hp_key, ZeroPad(ciphertext[0..16], nonce_len))
+   mask = Stream(40, hp_key, ZeroPad(ciphertext[0..16], nonce_len))
 
 6.  Operational Considerations
 
@@ -227,8 +226,8 @@ Table of Contents
 
    _This note is to be removed before publishing as an RFC._
 
-   A list of early implementations can be found at
-   https://github.com/jedisct1/draft-denis-tls-aegis.
+   A list of early implementations can be found at the project
+   repository (https://github.com/jedisct1/draft-denis-tls-aegis).
 
 8.  Security Considerations
 
