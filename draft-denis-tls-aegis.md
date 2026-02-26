@@ -127,7 +127,7 @@ For AEGIS-based cipher suites, the mask is generated using the same procedure as
 - `ciphertext[0..16]`: the first 16 bytes of the ciphertext
 - `nonce_len`: the AEGIS nonce length, either 128 or 256 bits, depending on the selected AEAD algorithm.
 
-A 40-bit mask is computed as follows:
+A 5-byte (40-bit) mask is computed as follows:
 
 ~~~
 mask = Stream(40, hp_key, ZeroPad(ciphertext[0..16], nonce_len))
