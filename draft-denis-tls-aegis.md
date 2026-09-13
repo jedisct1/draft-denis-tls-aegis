@@ -34,7 +34,7 @@ author:
  -
     fullname: Samuel Lucas
     organization: Individual Contributor
-    email: samuel-lucas6@pm.me
+    email: specifications@samuellucas.com
 
 normative:
 
@@ -53,7 +53,7 @@ informative:
 
 --- abstract
 
-This document proposes new cipher suites based on the AEGIS family of authenticated encryption algorithms for integration into the TLS 1.3, DTLS 1.3, and QUIC protocols.
+This document proposes new cipher suites based on the AEGIS family of authenticated encryption with associated data (AEAD) algorithms. The suites integrate AEGIS into TLS 1.3, DTLS 1.3, and QUIC.
 
 --- middle
 
@@ -77,7 +77,7 @@ This document introduces new cipher suites based on the AEGIS algorithms and out
 
 The TLS 1.3 protocol includes a set of mandatory cipher suites listed in {{!RFC8446, Section 9.1}}.
 
-Each cipher suite specifies the Authenticated Encryption with Associated Data (AEAD) algorithm for record protection, along with the hash algorithm for use with the HMAC-based Key Derivation Function (HKDF).
+Each cipher suite specifies an authenticated encryption with associated data (AEAD) algorithm for record protection. It also specifies a hash algorithm for use with the HMAC-based key derivation function (HKDF).
 
 The cipher suites and cryptographic negotiation mechanisms established in TLS 1.3 are reused by the DTLS 1.3 and QUIC protocols.
 
@@ -91,7 +91,7 @@ This document introduces additional cipher suites to accommodate AEGIS-based enc
 | `TLS_AEGIS_256_SHA512`   | AEGIS-256      | SHA512         | 256 bits              |
 | `TLS_AEGIS_256X2_SHA512` | AEGIS-256X2    | SHA512         | 256 bits              |
 | `TLS_AEGIS_256X4_SHA512` | AEGIS-256X4    | SHA512         | 256 bits              |
-{: title="Proposed AEGIS-based cipher suites"}
+{: title="Proposed AEGIS-Based Cipher Suites"}
 
 The rationale for recommending the SHA512 hash function for variants employing a 256-bit key is based on the findings presented in {{M23}}.
 
@@ -112,7 +112,7 @@ For AEGIS-based cipher suites, the mask is generated using the AEGIS `Stream` an
 
 A 48-bit mask is computed as follows:
 
-~~~
+~~~ pseudocode
 mask = Stream(48, sn_key, ZeroPad(ciphertext[0..16], nonce_len))
 ~~~
 
@@ -129,7 +129,7 @@ For AEGIS-based cipher suites, the mask is generated using the same procedure as
 
 A 5-byte (40-bit) mask is computed as follows:
 
-~~~
+~~~ pseudocode
 mask = Stream(40, hp_key, ZeroPad(ciphertext[0..16], nonce_len))
 ~~~
 
@@ -157,7 +157,7 @@ IANA has registered the following identifiers in the TLS Cipher Suite Registry:
 | :-------: | :---------------------- | :-----: | :---------: |
 | 0x13,0x06 | `TLS_AEGIS_256_SHA512`  |    Y    |      N      |
 | 0x13,0x07 | `TLS_AEGIS_128L_SHA256` |    Y    |      N      |
-{: title="Assigned IANA identifiers"}
+{: title="Assigned IANA Identifiers"}
 
 Implementations MAY use the following identifiers reserved for local testing:
 
@@ -167,7 +167,7 @@ Implementations MAY use the following identifiers reserved for local testing:
 |   0xff02   | `TLS_AEGIS_256X2_SHA512` |    Y    |      N      |
 |   0xff03   | `TLS_AEGIS_128X4_SHA256` |    Y    |      N      |
 |   0xff04   | `TLS_AEGIS_256X4_SHA512` |    Y    |      N      |
-{: title="Additional identifiers"}
+{: title="Additional Identifiers"}
 
 IANA is requested to assign the final identifiers.
 
@@ -179,7 +179,7 @@ IANA is requested to assign the final identifiers.
 
 ### With TLS_AEGIS_128L_SHA256
 
-~~~
+~~~ test-vectors
 shared_key:           cbb2b72da2bc70eb85fae05a8f6bc929
                       6f3e2f9693e5972a7b2a3da608e5eda2
 
@@ -206,7 +206,7 @@ server_handshake_iv:  cc421814028367299508e120a7cb3ad2
 
 ### With TLS_AEGIS_256_SHA512
 
-~~~
+~~~ test-vectors
 shared_key:           724d41a7ccadc6435d4305dd6756bd01
                       5e26dd0544a19733a2c08430f128b218
 
@@ -247,7 +247,7 @@ server_handshake_iv:  8f883c1bb0eae38960efdb717f6b19cf
 
 ### With TLS_AEGIS_128L_SHA256
 
-~~~
+~~~ test-vectors
 key:                  000102030405060708090a0b0c0d0e0f
 
 ciphertext[0..16]:    101112131415161718191a1b1c1d1e1f
@@ -259,7 +259,7 @@ mask:                 60ede1c811
 
 ### With TLS_AEGIS_128X2_SHA256
 
-~~~
+~~~ test-vectors
 key:                  000102030405060708090a0b0c0d0e0f
 
 ciphertext[0..16]:    101112131415161718191a1b1c1d1e1f
@@ -271,7 +271,7 @@ mask:                 6bf2292472
 
 ### With TLS_AEGIS_256_SHA512
 
-~~~
+~~~ test-vectors
 key:                  000102030405060708090a0b0c0d0e0f
                       101112131415161718191a1b1c1d1e1f
 
@@ -284,7 +284,7 @@ mask:                 6e3a2ce297
 
 ### With TLS_AEGIS_256X2_SHA512
 
-~~~
+~~~ test-vectors
 key:                  000102030405060708090a0b0c0d0e0f
                       101112131415161718191a1b1c1d1e1f
 

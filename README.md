@@ -12,6 +12,7 @@ This is the working area for the individual Internet-Draft, "AEGIS Ciphersuites 
 - [Experimental support for BoringSSL](https://github.com/jedisct1/boringssl/tree/aegis)
 - [Facebook's Fizz](https://github.com/facebookincubator/fizz)
 - [PicoTLS](https://github.com/h2o/picotls)
+- [Picoquic](https://github.com/private-octopus/picoquic)
 - [Zig TLS client](https://ziglang.org/documentation/master/std/#A;std:crypto.tls.CipherSuite)
 
 # Test URL
