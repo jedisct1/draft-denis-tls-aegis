@@ -59,7 +59,7 @@ This document proposes new cipher suites based on the AEGIS family of authentica
 
 # Introduction and Rationale
 
-AEGIS {{?I-D.irtf-cfrg-aegis-aead}} is a family of authenticated encryption algorithms designed for high-performance applications. AEGIS targets the same hardware class as AES-GCM, distinguishing itself through the following key attributes:
+AEGIS {{!RFC10032}} is a family of authenticated encryption algorithms designed for high-performance applications. AEGIS targets the same hardware class as AES-GCM, distinguishing itself through the following key attributes:
 
 1. Reduced memory requirements: AEGIS eliminates the need for a key schedule and precomputation tables, resulting in lower memory demands. This characteristic is particularly advantageous for servers managing a large number of connections.
 2. Extended usage limits: AEGIS features higher usage limits, reducing the need for frequent rekeying compared to other available options.
@@ -103,7 +103,7 @@ With the inclusion of these new cipher suites, the cryptographic negotiation mec
 
 In DTLS 1.3, encryption of record sequence numbers follows the specification detailed in {{!RFC9147, Section 4.2.3}}.
 
-For AEGIS-based cipher suites, the mask is generated using the AEGIS `Stream` and `ZeroPad` functions defined in {{?I-D.irtf-cfrg-aegis-aead}} with:
+For AEGIS-based cipher suites, the mask is generated using the AEGIS `Stream` and `ZeroPad` functions defined in {{!RFC10032}} with:
 
 - a 128-bit tag length
 - `sn_key`, as defined in {{!RFC9147, Section 4.2.3}}
